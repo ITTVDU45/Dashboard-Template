@@ -1,0 +1,189 @@
+Hier ist eine **klare, vollständige Roadmap** für einen **Color/Theme Switch (Dark ↔ Light)** in deinem **Next.js 16 + React 19 + Tailwind + shadcn/ui** Setup – modern, best-practice, sauber in `global.css` + Tokens, ohne Chaos im Code.
+
+---
+
+## Zielbild (Best Practice)
+
+* **Default:** Dark (weil dein Layout aktuell komplett schwarz ist)
+* **Switch:** Light Mode (weißes Layout)
+* **Technik:** **CSS Variables (Tokens) + `class="dark"`** auf `<html>`
+* **Persistenz:** `localStorage` + optional „System“ (prefers-color-scheme)
+* **Keine Hardcodes** wie `bg-black` überall → stattdessen **token-basierte Klassen**: `bg-background text-foreground` usw.
+
+---
+
+# Roadmap: Theme Switch (Dark/Light)
+
+## Phase 1 — Fundament: Token-System in `global.css`
+
+### 1.1 CSS Variables definieren (Light & Dark)
+
+**To-Do**
+
+* In `global.css`:
+
+  * `:root` = Light Tokens
+  * `.dark` = Dark Tokens
+
+**Token-Namen (shadcn-konform):**
+
+* `--background`, `--foreground`
+* `--card`, `--card-foreground`
+* `--popover`, `--popover-foreground`
+* `--primary`, `--primary-foreground`
+* `--secondary`, `--secondary-foreground`
+* `--muted`, `--muted-foreground`
+* `--border`, `--input`, `--ring`
+
+✅ Ergebnis: Du kannst überall standardisiert `bg-background text-foreground` nutzen.
+
+### 1.2 Tailwind config prüfen
+
+**To-Do**
+
+* Stelle sicher: `darkMode: ["class"]` in `tailwind.config.ts`
+
+✅ Ergebnis: Darkmode ist über HTML-Class steuerbar.
+
+---
+
+## Phase 2 — Refactor: Keine „Hardcoded Blacks“ mehr
+
+### 2.1 Layout-Komponenten umstellen
+
+**To-Do**
+
+* In Layout, Sidebar, Header, Cards:
+
+  * Ersetze `bg-black`, `bg-zinc-950`, `text-white`, etc.
+  * durch Tokens:
+
+    * `bg-background`
+    * `bg-card`
+    * `text-foreground`
+    * `text-muted-foreground`
+    * `border-border`
+
+✅ Ergebnis: Light Theme funktioniert sofort überall.
+
+### 2.2 Komponenten-Regel definieren
+
+**Regel:**
+
+* **Nie mehr** feste Farben in Layout / Standard-Komponenten
+* Farben nur über:
+
+  * Tokens (`bg-background`)
+  * Statusfarben (z. B. Success/Warning) als definierte Tailwind-Klassen
+
+---
+
+## Phase 3 — Theme Provider: Switch + Persistenz
+
+### 3.1 Theme State (client)
+
+**To-Do**
+
+* Erstelle `ThemeProvider` (Client Component)
+* Zustände:
+
+  * `dark`
+  * `light`
+  * optional `system` (modern)
+
+**Persistenz:**
+
+* `localStorage.setItem("theme", value)`
+* beim Laden:
+
+  * wenn gespeichert → übernehmen
+  * sonst system default (optional)
+  * fallback: dark
+
+✅ Ergebnis: Theme bleibt nach Reload gleich.
+
+### 3.2 HTML-Class setzen
+
+**To-Do**
+
+* `document.documentElement.classList.toggle("dark", theme === "dark")`
+
+✅ Ergebnis: Token-Sets wechseln automatisch.
+
+---
+
+## Phase 4 — UI Integration: Switch im Header
+
+### 4.1 Theme Toggle Component
+
+**To-Do**
+
+* `ThemeToggle` im Header einbauen:
+
+  * Icon Toggle (Sun/Moon)
+  * optional Dropdown: `Light / Dark / System`
+
+**UX-Details**
+
+* Tooltip (shadcn)
+* Soft transition
+
+✅ Ergebnis: Nutzer kann jederzeit wechseln.
+
+---
+
+## Phase 5 — Polish: Modern & „Premium“
+
+### 5.1 Smooth Transitions
+
+**To-Do**
+
+* In `global.css` optional:
+
+  * `transition-colors` in Root-Containern
+* Nicht überall, nur auf Layout-Wrappern, sonst fühlt es sich träge an.
+
+### 5.2 Komponenten prüfen (Charts, Dialoge, Tables)
+
+**To-Do**
+
+* Charts: Achsen/Text müssen `text-muted-foreground` nutzen
+* Dialog/Sheet: `bg-card` + `border-border`
+* Tables: `border-border`, `hover:bg-muted/30`
+
+✅ Ergebnis: Alles bleibt clean in Light Mode.
+
+---
+
+## Phase 6 — Checkliste (Definition of Done)
+
+✅ **DoD**
+
+* [ ] `:root` (Light) + `.dark` (Dark) Tokens fertig
+* [ ] `darkMode: ["class"]` aktiv
+* [ ] keine `bg-black`/`text-white` Hardcodes mehr im Layout
+* [ ] ThemeProvider setzt HTML class korrekt
+* [ ] ThemeToggle im Header
+* [ ] Persistenz in localStorage
+* [ ] Light Mode sieht wirklich „weiß & modern“ aus (nicht grau/matschig)
+* [ ] alle Hauptseiten getestet (Dashboard, Logs, Billing, Marketplace)
+
+---
+
+# Minimaler Projekt-Ordner (Empfehlung)
+
+```txt
+src/
+  components/
+    theme/
+      theme-provider.tsx
+      theme-toggle.tsx
+  app/
+    layout.tsx   (ThemeProvider einbinden)
+  styles/
+    globals.css
+```
+
+---
+
+Wenn du willst, gebe ich dir als nächsten Schritt **einen kurzen Cursor Prompt**, der das **komplett automatisiert** umsetzt (Tokens + Provider + Toggle + Refactor-Regeln).

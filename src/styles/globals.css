@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ===== LIGHT THEME (Default) ===== */
+  :root {
+    /* Background Layers */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 98%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    /* Muted */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    /* Accent */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Border & Input */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+    
+    /* Custom Surfaces */
+    --sidebar: 210 40% 98%;
+    --surface: 210 40% 98%;
+    --surface-2: 210 40% 96%;
+    
+    /* Glass (Light) */
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 214.3 31.8% 91.4%;
+    --glass-shadow: 0 0% 0% / 0.08;
+    
+    /* Status Colors */
+    --accent-primary: 217 91% 60%;
+    --accent-success: 142 76% 36%;
+    --accent-warning: 38 92% 50%;
+    --accent-danger: 0 84% 60%;
+    --accent-purple: 262 83% 58%;
+    
+    /* Text */
+    --text-primary: 222.2 84% 4.9%;
+    --text-secondary: 215.4 16.3% 46.9%;
+    --text-muted: 215.4 16.3% 56.9%;
+    --text-inverted: 0 0% 100%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+  }
+
+  /* ===== DARK THEME ===== */
+  .dark {
+    /* Background Layers */
+    --background: 220 20% 6%;
+    --foreground: 220 10% 90%;
+    --card: 220 26% 11%;
+    --card-foreground: 220 10% 90%;
+    --popover: 220 26% 11%;
+    --popover-foreground: 220 10% 90%;
+    
+    /* Primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 47% 4%;
+    
+    /* Secondary */
+    --secondary: 220 26% 14%;
+    --secondary-foreground: 220 10% 90%;
+    
+    /* Muted */
+    --muted: 220 26% 14%;
+    --muted-foreground: 220 9% 60%;
+    
+    /* Accent */
+    --accent: 220 30% 16%;
+    --accent-foreground: 220 10% 90%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border & Input */
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 217 91% 60%;
+    
+    /* Custom Surfaces */
+    --sidebar: 220 30% 7%;
+    --surface: 220 26% 11%;
+    --surface-2: 220 26% 14%;
+    
+    /* Glass (Dark) */
+    --glass-bg: 0 0% 100% / 0.06;
+    --glass-border: 0 0% 100% / 0.12;
+    --glass-shadow: 0 0% 0% / 0.35;
+    
+    /* Status Colors */
+    --accent-primary: 217 91% 60%;
+    --accent-success: 142 71% 45%;
+    --accent-warning: 38 92% 50%;
+    --accent-danger: 0 84% 60%;
+    --accent-purple: 262 83% 58%;
+    
+    /* Text */
+    --text-primary: 220 10% 90%;
+    --text-secondary: 220 9% 60%;
+    --text-muted: 220 9% 46%;
+    --text-inverted: 220 47% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    color-scheme: light;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid hsl(var(--glass-border));
+    border-radius: 18px;
+    box-shadow: 0 10px 30px hsl(var(--glass-shadow));
+  }
+  
+  /* Surface Card */
+  .surface-card {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 16px;
+    box-shadow: 0 10px 30px hsl(var(--glass-shadow));
+  }
+  
+  /* Glow effect */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--accent-primary) / 0.3);
+  }
+  
+  .glow-success {
+    box-shadow: 0 0 20px hsl(var(--accent-success) / 0.3);
+  }
+  
+  /* Active indicator */
+  .active-indicator {
+    position: relative;
+  }
+  
+  .active-indicator::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 24px;
+    background: hsl(var(--primary));
+    border-radius: 0 2px 2px 0;
+  }
+  
+  /* Hover lift */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px hsl(var(--glass-shadow));
+  }
+  
+  /* Tabular numbers for stats */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent-purple)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Border gradient */
+  .border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(hsl(var(--surface)), hsl(var(--surface))) padding-box,
+                linear-gradient(135deg, hsl(var(--primary) / 0.5), hsl(var(--accent-purple) / 0.5)) border-box;
+  }
+  
+  /* Safe area padding for notched devices */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Mobile Touch Target Sizing */
+@media (max-width: 768px) {
+  /* Ensure minimum touch target size on mobile */
+  button,
+  [role="button"],
+  a,
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    min-height: 44px;
+  }
+  
+  /* Larger tap areas for inputs */
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+  
+  /* Better touch feedback */
+  button:active,
+  [role="button"]:active,
+  a:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}

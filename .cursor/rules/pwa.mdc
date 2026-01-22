@@ -1,0 +1,28 @@
+1. Analyse & Planung
+Ist‑Analyse: Prüfe deine derzeitige Seitenstruktur und identifiziere Desktop‑Layouts oder Komponenten, die nicht mobilfreundlich sind (z. B. breite Tabellen, feste Höhen/Breiten).
+Breakpoints definieren: Lege in Tailwind sinnvolle Breakpoints fest. Ein mobile‑first Ansatz bedeutet, zuerst die mobile Ansicht zu bauen und anschließend auf größere Screens zu erweitern.
+PWA‑Ziele festlegen: PWAs bieten App‑ähnliche Features wie Home‑Screen‑Installation und Push‑Notifications. Entscheide, welche Features du brauchst (z. B. nur Offline‑Caching oder auch Push‑Benachrichtigungen).
+2. Struktur & Layout anpassen
+Responsive Komponenten: Erstelle wiederverwendbare Layout‑Bausteine (z. B. Card‑Komponenten, Grid‑Layouts). Nutze Tailwind-Breakpoints wie sm:, md:, lg: für Responsive‑Classes.
+Mobile Navigation: Ersetze Desktop‑Seitenleisten durch mobile Drawer oder Bottom‑Tabs (shadcn/ui stellt passende Komponenten bereit).
+Flexibles Grid: Nutze flex/grid und Tailwind‑Utilities für dynamische Anordnung. Vermeide feste Pixel‑Breiten; arbeite mit Prozenten und minmax().
+3. PWA‑Integration
+Manifest erstellen: Lege app/manifest.ts an und exportiere ein Objekt mit Name, Kurzname, Icons, Start‑URL und Theme‑Farbe. Diese Datei steuert, wie deine App installiert wird und wie sie auf dem Homescreen aussieht.
+Icons hinzufügen: Generiere verschiedene Icon-Größen (192×192, 512×512) und lege sie in public/ ab. Verweise darauf im Manifest.
+Service Worker: Verwende entweder das Paket next-pwa oder den built‑in Ansatz (ab Next.js 16). Platziere einen Service Worker in public/sw.js und konfiguriere das Caching für Assets und API‑Responses. Für Offline‑Seiten erstelle eine Fallback‑Route.
+Metadata konfigurieren: Setze theme_color und background_color im Manifest und ergänze in app/layout.tsx <meta name="theme-color" content="#000000" />, um die Browserleiste zu färben.
+4. Erweiterte PWA‑Funktionen (optional)
+Web Push Notifications: Wenn du Re‑Engagement brauchst, implementiere Push‑Subscriptions über einen Service Worker. Das Next.js‑Beispiel zeigt, wie man einen Service Worker registriert und Abos verwaltet.
+Installations‑Banner: Erstelle einen Hinweis (z. B. modales Overlay) für iOS/Nutzer ohne installierte App, der zur Installation auffordert.
+5. Code‑Organisation
+Feature‑Verzeichnis: Halte deine mobile Komponenten in src/features/mobile und Desktop‑Versionen in eigenen Unterordnern. Teile UI‑Logik und Geschäftslogik (Hooks/Services) strikt.
+Context & Hooks: Verwende React Context (z. B. ThemeContext, AuthContext) und Custom Hooks (useResponsive, usePWAInstall) um wiederkehrende Zustände und Funktionen zu kapseln.
+Global Styles: Definiere in globals.css Farbtokens (Dark/Light), die per CSS‑Variable umgeschaltet werden können. So lassen sich Dark‑ und Light‑Mode leichter steuern.
+6. Testen & Optimieren
+Responsives Testing: Nutze die DevTools (Device Mode) und teste auf verschiedenen Geräten. Simuliere schlechte Netzwerke, um das Offline‑Verhalten zu prüfen.
+Lighthouse Audit: Führe den PWA‑Report aus, um Performance, Accessibility und PWA‑Anforderungen zu überprüfen und zu verbessern.
+Deployment: Stelle sicher, dass dein Host HTTPS unterstützt (Pflicht für PWAs) und Service Worker korrekt gecacht wird.
+7. Kontinuierliche Weiterentwicklung
+Analytics & Tracking: Überwache, wie mobile Nutzer*innen die App verwenden, um Usability‑Verbesserungen abzuleiten.
+Feature Iteration: Plane weitere native‑ähnliche Features (z. B. Background Sync, Offline‑Speicherung). Die Next.js‑Dokumentation weist darauf hin, dass PWAs sukzessive erweitert werden können.
+Internationalisierung: Berücksichtige die Mehrsprachigkeit (z. B. next-intl), um auch mobile Nutzer*innen verschiedener Sprachen optimal anzusprechen.

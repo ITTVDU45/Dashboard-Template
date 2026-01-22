@@ -1,0 +1,148 @@
+Überblick
+Curser ist ein kundenorientiertes Dashboard, das sich um die Bereitstellung und Verwaltung von KI‑Services über eine zentrale API dreht. Zur Planung gehören sowohl fachliche Funktionen als auch die technische Umsetzung. Die folgende Roadmap beschreibt jede Seite des Dashboards, ihre Aufgaben und Interaktionen, die inhaltliche Struktur sowie die visuelle Darstellung in einem modernen, responsiven Dashboard. Anschließend folgt eine technische Dokumentation mit einer empfohlenen Ordner‑ und Komponentenstruktur für eine auf React 19, Next.js 16, TypeScript, Tailwind CSS und Shadcn/ui basierende Implementierung.
+Roadmap‑Phasen
+Phase 1 – Grundfunktionen bereitstellen
+In dieser Phase werden die essenziellen Seiten und Funktionen entwickelt: Dashboard‑Übersicht, API‑Key‑Verwaltung, Nutzungsstatistik, Logs, Speicherverwaltung, Dokumentation und Billing & Guthaben. Diese bilden die Basis für das Kundenportal und ermöglichen erste Rückmeldungen der Kund*innen.
+Phase 2 – Kunden‑Erlebnis erweitern
+Um das Erlebnis zu verbessern, kommen App‑Store/Marketplace, Support‑ & Chatbot‑Funktionen, Benachrichtigungen & Einstellungen sowie eine Feature‑Wunschliste hinzu. Außerdem wird das Billing um Prepaid‑Guthaben und Abomodelle erweitert.
+Phase 3 – Automatisierung & Integration
+Diese Phase bringt erweiterte Integrationen: eigene Applikationen & Integrationen, ein visueller Workflow‑Builder zur Low‑Code-Automatisierung sowie API‑gestützte Verbindungen zu Drittanbietern. Der App‑Store erhält personalisierte Empfehlungen und ist stärker in die Prozesse eingebunden.
+Phase 4 – Optimierung & Skalierung
+Auswertungen und Feedback führen zu Verbesserungen der UX, der Sicherheit, der internationalen Lokalisierung und der mobilen Nutzung. Zusätzliche Module und Integrationen werden auf Grundlage der Feature‑Wunschliste ergänzt. Monitoring und Skalierbarkeit der Infrastruktur werden weiter optimiert.
+Seiten und Funktionen
+Dashboard‑Übersicht
+Aufgaben / Interaktionen: Die Startseite zeigt den aktuellen Status des Accounts (z. B. Requests, Erfolgs‑/Fehlerquoten, Credits) und dient als Ausgangspunkt für weitere Navigation. Kund*innen können Zeiträume filtern und schnell zu Detailseiten springen.
+Struktur: Die Seite nutzt Karten oder Kacheln, um die wichtigsten KPIs zu präsentieren. Eine Zeitleiste oder Chart‑Komponente erlaubt Drill‑Down nach Zeitraum und API‑Key. Der Header oder eine Seitenleiste verlinkt zu anderen Seiten.
+Visualisierung: Modernes Design folgt dem Drei‑Sekunden‑Prinzip: Hauptmetriken in der linken oberen Ecke, klare visuelle Hierarchie und ausreichend Weißraum. Farbige Trendindikatoren (z. B. grün/rot) helfen beim schnellen Erfassen der Lage, responsive Layouts unterstützen mobile Nutzung.
+API‑Key‑Verwaltung
+Aufgaben / Interaktionen: Kund*innen können API‑Keys erstellen, deaktivieren oder löschen, Rollen und Berechtigungen zuweisen und Schlüssel rotieren. Eine Audit‑Historie zeigt, wann Schlüssel erstellt, verwendet oder gesperrt wurden.
+Struktur: Eine Tabelle listet alle Schlüssel mit Spalten für Name, Berechtigung und Status. Tab‑Navigation trennt aktive, deaktivierte und abgelaufene Schlüssel. Detailansichten informieren über Nutzung, Logs und Einstellungen.
+Visualisierung: Buttons zum Generieren und Sperren von Schlüsseln sind prominent platziert; Warnhinweise informieren über ablaufende Schlüssel. Icons oder Farben signalisieren den Status. Tooltips erklären das Prinzip der minimalen Rechte und geben Hinweise zur Schlüsselrotation.
+Nutzungsstatistik (Usage)
+Aufgaben / Interaktionen: Analyse des Ressourcenverbrauchs nach API‑Key, Endpunkt oder Statuscode. Kund*innen können Zeiträume vergleichen, Trendanalysen durchführen und Daten exportieren.
+Struktur: Tabs trennen unterschiedliche Analyseebenen („Pro Key“, „Pro Endpunkt“, „Pro Statuscode“). Filter und Dropdowns legen Zeitraum, Keys oder Dienste fest. Eine Export‑Funktion erlaubt das Herunterladen der Daten als CSV/JSON.
+Visualisierung: Linien‑, Balken‑ und Donut‑Diagramme visualisieren Requests, Erfolgs‑ und Fehlerraten. Interaktive Datenpunkte (Hover‑Infos) verbessern die Lesbarkeit; Trendpfeile oder Prognose‑Charts verdeutlichen Entwicklungen.
+Logs
+Aufgaben / Interaktionen: Protokollieren und Durchsuchen aller API‑Anfragen. Kund*innen können Fehlerquellen erkennen und Sicherheitsvorfälle analysieren.
+Struktur: Eine Log‑Liste zeigt Zeitstempel, API‑Key, Endpunkt und Statuscode. Filter (Zeitraum, Key, Fehlercode) und eine Suchfunktion helfen bei der Eingrenzung. Einzelne Logs lassen sich öffnen, um Request‑ und Response‑Body vollständig einzusehen.
+Visualisierung: Log‑Einträge werden in klar getrennten Karten oder Tabellenreihen dargestellt, damit sie übersichtlich bleiben. Syntax‑Highlighting für Request/Response‑Bodies erleichtert das Verständnis, und Icons signalisieren den Status (z. B. Fehler vs. Erfolg).
+Speicherverwaltung (Storage)
+Aufgaben / Interaktionen: Upload, Download und Organisation von Dateien wie Datensätzen, Ergebnissen oder Modellen. Ordnerstruktur und Zugriffsrechte managen. Anzeige des belegten Speichers und verbleibender Kapazität.
+Struktur: Tabs wie „Meine Dateien“, „Uploads“, „Geteilte Ordner“. Listenansichten zeigen Name, Größe, Besitzer und Upload‑Datum. Eine Detailansicht bietet Metadaten und Links zu Workflows, die mit der Datei verbunden sind.
+Visualisierung: Icons weisen den Dateityp aus; Fortschrittsbalken zeigen den Status beim Hochladen. Drag‑&‑Drop‑Uploads erhöhen die Bedienfreundlichkeit. Eine Anzeige in der Seitenleiste informiert über den belegten Speicher.
+Dokumentation
+Aufgaben / Interaktionen: Zugriff auf ausführliche API‑Dokumentation, Tutorials, Code‑Beispiele und Changelogs. Kund*innen können die API in einer interaktiven Umgebung testen.
+Struktur: Eine Navigationsleiste unterteilt „Einführung“, „Referenz“, „Guides“, „Changelog“. Innerhalb eines Endpunkts unterteilen Untertabs Parameter, Beispielanfragen und mögliche Fehlercodes. Eine Suchleiste oben erleichtert den Zugriff.
+Visualisierung: Code‑Blöcke mit Syntax‑Highlighting, interaktive Swagger/OpenAPI‑Explorer zur sofortigen Testung, klare Typografie und farbige Warnhinweise helfen beim schnellen Verständnis.
+Billing & Guthaben
+Aufgaben / Interaktionen: Überblick über das aktuelle Guthaben, Aufladen per Einmalzahlung, Auswahl oder Wechsel von Abos, Einsehen der Transaktionshistorie.
+Struktur: Drei Tabs („Guthaben“, „Abos“, „Transaktionen“). Eine Guthaben‑Anzeige zeigt den aktuellen Kreditbalken, Buttons ermöglichen das Aufladen oder Wechseln des Plans. Die Transaktionsliste enthält Datum, Betrag, Art der Transaktion und Restguthaben.
+Visualisierung: Balkendiagramme und Karten machen den Verbrauch sichtbar. Warnhinweise bei niedrigem Guthaben und Tooltips erklären das Prepaid‑Modell.
+App‑Store / Marketplace
+Aufgaben / Interaktionen: Entdecken, Installieren und Verwalten von zusätzlichen KI‑Modulen oder Services. Kund*innen können Bewertungen lesen, Preise vergleichen und neue Features ausprobieren.
+Struktur: Eine Filterleiste (Kategorien, Preis, Bewertung) und ein Kachelraster mit App‑Karten. Jede Karte führt zu einer Detailseite mit Beschreibung, Systemanforderungen, Pricing, Reviews und Installationsanleitung. Ein „Meine Apps“‑Tab listet installierte Module und ermöglicht deren Verwaltung (An/Aus, Updates, Deinstallation).
+Visualisierung: Klare Karten mit App‑Logo und kurzer Beschreibung. Hierarchische Menüs und Breadcrumbs unterstützen die Navigation durch die Kategorien. Bewertungssterne, CTA‑Buttons („Installieren“) und Versionshinweise sind gut sichtbar.
+Eigene Applikationen & Integrationen
+Aufgaben / Interaktionen: Verwalten von Verbindungen zu eigenen Systemen (z. B. CRMs, externe Datenquellen). Kund*innen können neue Integrationen einrichten, bestehende bearbeiten oder löschen.
+Struktur: Eine Liste zeigt vorhandene Integrationen mit Logo, Name, Status und Einstellungen. Ein Wizard führt Schritt für Schritt durch die Einrichtung neuer Integrationen. Tabs wie „Aktive Integrationen“ und „Inaktive Integrationen“ ordnen die Übersicht. Detailseiten enthalten Logs und Nutzungsstatistiken, abgeleitet von der API‑Key‑Nutzung.
+Visualisierung: Übersichtlich gestaltete Listeneinträge mit Aktiv/Deaktivier‑Schalter, farblichen Statusindikatoren und Tooltips. Auf der Wizard‑Seite sorgen Fortschrittsanzeige und Formular‑Validierung für gute UX.
+Workflow‑Builder
+Aufgaben / Interaktionen: Visueller Low‑Code‑Builder zum Erstellen automatisierter Workflows. Kund*innen verbinden Trigger, Aktionen und KI‑Module zu komplexen Abläufen.
+Struktur: Ein zentraler Canvas für das Diagramm mit Nodes. Links eine Bibliothek (Trigger, Aktionen, KI‑Module), rechts ein Konfigurationspaneel für den ausgewählten Node. Tabs „Meine Workflows“ und „Vorlagen“ listen gespeicherte und vorgefertigte Workflows. Versionierung und Testmöglichkeiten sind vorhanden.
+Visualisierung: Drag‑&‑Drop‑Elemente und animierte Verbindungen schaffen eine intuitive Bedienung. Hover‑Effekte zeigen Kurzinfos; ein minimales Farbschema hält den Fokus auf die Logik. Breadcrumbs oder eine Minimap helfen bei komplexen Workflows.
+Support & Chatbot
+Aufgaben / Interaktionen: Sofortiger Support per Chatbot, Zugriff auf eine Wissensdatenbank und Erstellung von Supporttickets. Der Chatbot beantwortet häufige Fragen, lernt aus Interaktionen und entlastet den Support.
+Struktur: Drei Tabs: „Chatbot“, „Wissensdatenbank“, „Tickets“. Der Chatbot lebt in einer Seitenleiste oder einem Floating‑Widget. Tickets lassen sich im Ticket‑Tab erstellen und in einer Liste nach Status filtern. Die Wissensdatenbank wird nach Kategorien geordnet und bietet eine Suche.
+Visualisierung: Ein Chatfenster im Stil moderner Messenger‑UIs. Tickets erscheinen als Karten mit Statusetiketten; die Knowledge‑Base nutzt Akkordeons oder Tabs für übersichtliche Inhalte. Eine klare UX erleichtert das Finden von Antworten und minimiert Supportanfragen.
+Benachrichtigungen & Einstellungen
+Aufgaben / Interaktionen: Verwaltung aller Benachrichtigungen (z. B. Limits, Rechnungen, System‑Updates) sowie persönlicher Einstellungen (Zeit‑/Spracheinstellungen, 2FA, Profilangaben).
+Struktur: Tabs oder Akkordeons unterteilen Bereiche wie „Nutzungs‑Alarme“, „Zahlungen“, „Systemmeldungen“, „Webhooks“ und „Profil“. Benutzer*innen können Benachrichtigungen aktivieren/deaktivieren und Präferenzen konfigurieren.
+Visualisierung: Toggle‑Schalter, Dropdowns und Formularfelder ermöglichen eine einfache Anpassung. Klar platzierte Call‑to‑Action‑Buttons leiten zu weiterführenden Einstellungen.
+Feature‑Wunschliste
+Aufgaben / Interaktionen: Kund*innen können Ideen für neue Features einreichen, Vorschläge anderer liken und kommentieren. So wird die Produktentwicklung transparent und partizipativ.
+Struktur: Ein Formular zur Einreichung neuer Ideen, eine Liste bestehender Vorschläge sortierbar nach Beliebtheit oder Kategorie sowie ein Tab „Meine Ideen“ mit dem Status der eigenen Vorschläge. Voting‑Mechanismen ermöglichen Upvotes.
+Visualisierung: Jede Idee als Karte mit Titel, Kurzbeschreibung, Kategorie und Like‑Zähler. Farbliche Akzente heben beliebte Ideen hervor. Kommentare werden in einer expandierbaren Ansicht angezeigt.
+Technische Dokumentation
+Projektstruktur (Next.js 16 & React 19)
+Die Next.js‑App sollte im src‑Verzeichnis organisiert werden, wie es für größere Projekte empfohlen wird. Die folgende Struktur sorgt für Klarheit und Skalierbarkeit:
+src/
+├── app/                         # Next.js App Router – definiert Routen, Layouts, Seiten
+│   ├── (dashboard)/             # Layout-/Routengruppe für das Kundenportal
+│   │   ├── page.tsx            # Einstiegspunkt des Dashboards
+│   │   ├── layout.tsx          # Gemeinsames Layout für das Dashboard (z. B. Navigation, Footer)
+│   │   ├── dashboard/          # Unterordner für Dashboard-Startseite
+│   │   │   └── page.tsx
+│   │   ├── api-keys/           # Unterordner für API-Key-Verwaltung
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── usage/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── logs/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── storage/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── documentation/
+│   │   │   └── page.tsx
+│   │   ├── billing/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── marketplace/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── integrations/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── workflows/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── support/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── settings/
+│   │   │   ├── page.tsx
+│   │   │   └── components/
+│   │   ├── wishlist/
+│   │       ├── page.tsx
+│   │       └── components/
+├── components/                  # Wiederverwendbare UI-Komponenten (Buttons, Modals, Formulare)
+│   ├── ui/                      # UI-Bibliothek (z. B. shadcn/ui)
+│   ├── layout/                 # Globale Layout-Komponenten (Header, Sidebar, Footer)
+│   └── charts/                 # Chart-Komponenten (Wrapper für Chart.js oder Recharts)
+├── features/                   # Feature-spezifische Hooks, Services und State (je Seite)
+│   ├── api-keys/
+│   │   ├── hooks.ts            # z. B. useApiKeys
+│   │   ├── service.ts          # API-Aufrufe
+│   │   └── types.ts            # TS-Interfaces
+│   ├── usage/
+│   ├── logs/
+│   ├── storage/
+│   ├── …                       # entsprechend für weitere Features
+├── lib/                        # Hilfsfunktionen und Utility-Funktionen
+├── hooks/                      # Globale Custom-Hooks (z. B. useAuth, useNotifications)
+├── context/                    # React Context für globale Zustände (User, Theme, Permissions)
+├── server/                     # Server Actions, API-Integration, Datenbankzugriffe
+├── types/                      # Globale TypeScript-Typen und Interfaces
+├── styles/                     # Tailwind-Konfiguration, globale Styles, Themes
+└── config/                     # Konfigurationsdateien (z. B. API-Endpunkte, Umgebungsvariablen)
+Diese Struktur folgt den Best Practices für große Next.js‑Projekte und trennt klar zwischen Routen (app/), wiederverwendbaren Komponenten (components/), feature‑spezifischen Logiken (features/), globalen Hooks/Context und serverseitigen Aktionen.
+Komponentenstruktur
+Jede Seite im Dashboard besitzt einen eigenen Unterordner unter app/(dashboard), der die page.tsx (Routen‑Entry) und einen components/‑Ordner enthält. Dieser wiederum gliedert sich in:
+View‑Komponenten: Hauptdarstellungen, die Unterkomponenten zusammensetzen (z. B. ApiKeyList.tsx, UsageChart.tsx).
+UI‑Komponenten: Reusable Components aus components/ui, z. B. Buttons, Modals, Tabs, Formular‑Elemente. Diese werden auf Basis der Shadcn/ui‑Bibliothek entwickelt und mit Tailwind CSS gestylt.
+Form‑ und Dialog‑Komponenten: z. B. ApiKeyModal.tsx oder BillingTopUpForm.tsx, die in ihrer Seite genutzt und in features/<seite>/hooks mit State verknüpft werden.
+State & Hooks: Der features/<seite>/hooks.ts enthält Custom Hooks für die Datenabfrage (z. B. useApiKeys) sowie Zustand (z. B. modaler State). Der features/<seite>/service.ts kapselt API‑Aufrufe; so bleibt die Präsentation strikt von der Geschäftslogik getrennt.
+Dynamische Daten & Code‑Splitting
+Data Fetching: Für Daten werden server actions (Next.js 16) oder SWR/React Query im Client genutzt. Routen rufen benötigte Daten über die service.ts ab und übergeben sie als Props an die View‑Komponenten. Dadurch werden Texte, Grafiken und Listen dynamisch geladen und nicht hart codiert.
+Context‑API & Hook‑State: Globale Informationen wie Authentifizierung, Benachrichtigungen und Theme werden über React Context verwaltet. Feature‑spezifischer State (z. B. welcher Tab aktiv ist) bleibt lokal in den Hooks.
+Code‑Splitting & Lazy Loading: Mit React.lazy und Next.js Dynamic Imports werden große Seiten oder Komponenten (z. B. der Workflow‑Builder) nur geladen, wenn sie benötigt werden. Dies verkürzt die Ladezeit der Startseite.
+Best Practices
+Modularität: Jede Funktionalität besitzt einen eigenen Feature‑Ordner mit Komponenten, Hooks und Services. So können Teams parallel arbeiten und einzelne Module austauschen oder erweitern.
+Wiederverwendbare UI‑Elemente: Gemeinsame Elemente (Buttons, Modals, Charts) werden in components/ui zentral entwickelt. Shadcn/ui dient als Basis; Tailwind CSS sorgt für konsistente Styles.
+TypeScript & Typdefinitionen: Verwende strenge Typen in types/ und pro Feature (features/<seite>/types.ts), um die Typ‑Sicherheit zu erhöhen und Fehler frühzeitig zu vermeiden.
+Absolute Importe & Barrel Files: Nutze absolute Pfade (@/components/ui/Button) und index.ts‑Barrels, um die Importpfade zu vereinfachen und die Lesbarkeit zu erhöhen. Das wird in der Tech Tales‑Struktur empfohlen.
+Testing & CI/CD: Ergänze Unit‑Tests für Hooks und Komponenten sowie End‑to‑End‑Tests für die wichtigsten User‑Flows. Verwende ESLint und Prettier für Konsistenz. Integriere automatisierte Build‑ und Deployment‑Pipelines.
+Zusammenfassung
+Der dargestellte Plan strukturiert das Projekt Curser klar in Phasen und Seiten. Jede Seite hat definierte Aufgaben, Interaktionen und eine moderne Darstellungsweise, die auf bewährten UX‑Prinzipien basiert. Die technische Dokumentation empfiehlt eine modulare, skalierbare Next.js‑Struktur mit klarer Trennung von Routen, Komponenten, Features und globalen Utilities. Dadurch entsteht ein flexibles, wartbares und erweiterbares Kundenportal.

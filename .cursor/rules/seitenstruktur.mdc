@@ -1,0 +1,59 @@
+Seitenstruktur für das Kunden‑Dashboard
+Die folgenden Seiten bilden die Grundlage für das Kunden‑Dashboard. Jeder Bereich ist so beschrieben, dass die Kund*innen verstehen, was sie dort sehen und tun können. (Die Login‑Seite wird nicht betrachtet.)
+Dashboard (Übersicht)
+Übersicht der Nutzung: Grafische Darstellung der aktuellen API‑Anfragen, z. B. Gesamtzahl der Requests, Erfolgs‑ und Fehlerraten. Ein gutes Beispiel für solch ein Dashboard ist das API‑Usage‑Dashboard von Braze, das die Gesamtanfragen, die Erfolgsquote und die Fehlerquote anzeigt.
+Filtern und Zeiträume: Kund*innen können Zeiträume (z. B. heute, letzte 7 Tage, letzter Monat) auswählen und die Daten nach API‑Key, Endpunkt oder Antwortcode filtern.
+Schnellzugriff: Verlinkungen zu API‑Keys, Logs, Dokumentation und Billing.
+API‑Key‑Verwaltung
+Keys erzeugen und deaktivieren: Kunden können neue API‑Keys generieren, vorhandene Keys deaktivieren oder löschen. Keys dienen zur Authentifizierung, Autorisierung und zur Nachverfolgung der Nutzung.
+Berechtigungen: Keys können mit rollen‑ und endpunktbezogenen Berechtigungen versehen werden (Prinzip der minimalen Rechte).
+Audit und Rotation: Hinweise zur regelmäßigen Rotierung von Schlüsseln und ein Log der Key‑Verwendung.
+Nutzungsstatistiken (Usage)
+Detaillierte Statistik: Zeitliche Aufschlüsselung der Requests pro Key oder Endpunkt; Erfolgs‑ und Fehlerquoten; Vergleich verschiedener Zeiträume.
+Exportfunktionen: Möglichkeit, die Daten als CSV oder JSON zu exportieren.
+Alarmfunktionen: Bei ungewöhnlichen Nutzungsmustern (z. B. hoher Fehleranteil) können Benachrichtigungen ausgelöst werden.
+Logs
+Anfrage‑ und Antwortprotokolle: Protokolle zu jeder API‑Anfrage mit Zeitstempel, Key, Endpunkt, Antwortcode und Fehlerdetails. Ein solides Log‑System ermöglicht die Überwachung der API‑Schlüssel und hilft beim Erkennen verdächtiger Aktivitäten.
+Filter & Suche: Filter nach Zeitraum, API‑Key, Endpunkt oder Statuscode.
+Speicherverwaltung (Storage)
+Dateien hoch‑ und herunterladen: Kunden können Eingabedateien (z. B. Datensätze, Modelle) hochladen und Analyseergebnisse herunterladen. Ein gutes Client‑Portal ermöglicht sicheres Hochladen, Downloaden und Prüfen von Dateien.
+Ordnerstruktur und Berechtigungen: Übersichtliche Ordnerstruktur mit Zugriffsrechten; Anzeige des belegten Speichers.
+Dokumentation
+API‑Dokumente: Interaktive API‑Doku (z. B. OpenAPI/Swagger) mit Beispielanfragen und Code‑Snippets.
+Tutorials und Best Practices: Guides zur effizienten Nutzung der KI‑Features.
+Changelog: Übersicht über neue Funktionen oder Breaking Changes.
+Billing & Guthaben
+Guthaben‑Anzeige: Zeigt den aktuellen Stand der Prepaid‑Credits an. Ein Credit‑basiertes Abrechnungsmodell basiert darauf, dass Kund*innen im Voraus Credits erwerben und diese bei Nutzung verbrauchen.
+Top‑up und Abos: Kund*innen können weitere Credits kaufen oder auf ein Abo umsteigen. Der zugrunde liegende Mechanismus sollte eine Kreditbuchhaltung (Ledger) und eine Wallet‑Verwaltung enthalten.
+Transaktionshistorie: Transparente Darstellung von Einzahlungen, Verbrauch, Boni und Rückerstattungen.
+App‑Store / Marketplace
+Auswahl von KI‑Modulen: Liste verfügbarer „Apps“ oder Features mit Beschreibung, Preis und Nutzerbewertungen. Eine intuitive Navigation und hierarchische Kategorien erleichtern das Auffinden.
+Installieren & Verwalten: Kund*innen können Module aktivieren, deaktivieren oder deinstallieren. Installierte Apps erscheinen in einer separaten Übersicht.
+Bewertungen & Feedback: Möglichkeit, Erfahrungen zu teilen und Empfehlungen abzugeben.
+Eigenen Applikationen & Integrationen
+Verbindungen zu Dritt‑Systemen: Kunden können Webhooks, OAuth‑Verbindungen oder andere Integrationen konfigurieren, um die zentrale API mit ihren eigenen Anwendungen zu verbinden.
+API‑Endpunkte verwalten: Zuweisung von API‑Keys und Berechtigungen pro Anwendung.
+Workflow‑Builder (Low‑Code)
+Visueller Builder: Ein Drag‑and‑Drop‑Interface zum Verbinden verschiedener Schritte (Trigger, Aktionen, KI‑Module). Low‑Code‑Plattformen kombinieren visuelle Builder mit Code‑Snippets, um Trigger, Aktionen und Ergebnisse zu synchronisieren.
+Vorlagen und Integration: Vordefinierte Workflows sowie die Möglichkeit, eigene Templates zu speichern. Gute Tools bieten viele Integrationen und erlauben das Hinzufügen kleiner Code‑Blöcke.
+Versionierung und Testen: Kunden können Workflows testen, aktivieren und bei Bedarf rückgängig machen.
+Support & Chatbot
+Live‑Chat/AI‑Agent: Ein AI‑basierter Chatbot beantwortet einfache Fragen sofort. Chatbots entlasten den Support, indem sie Anfragen prompt und lernfähig beantworten.
+Wissenbank & Ticketing: Zugriff auf eine Wissensdatenbank; Möglichkeit, Support‑Tickets zu eröffnen, wenn der Chatbot nicht weiterhilft. Ein leistungsfähiges Kundenportal umfasst Knowledge‑Base, personalisierte Dashboards, Zahlungsübersichten und Chatbot‑Integration.
+Benachrichtigungen & Einstellungen
+Alerts & Webhooks: Einstellungen für Nutzungs‑Limits, Zahlungs‑Erinnerungen und System‑Benachrichtigungen.
+Profil‑Einstellungen: Verwaltung von Kontaktdaten, Sprache, Zeitzone und Benachrichtigungspräferenzen.
+Feature‑Wunschliste
+Ideen einreichen und voten: Kund*innen können neue Funktionen vorschlagen und bestehende Vorschläge bewerten. So wird die Produktentwicklung transparenter.
+Roadmap‑Transparenz: Anzeige geplanter Features und Entwicklungsfortschritte.
+Roadmap (nicht technisch)
+Phase 1: Grundfunktionen bereitstellen
+Beginne mit den wichtigsten Seiten: Dashboard, API‑Key‑Verwaltung, Nutzungsstatistiken, Logs, Speichermanagement, Dokumentation und Billing. Diese Funktionen decken Kernanforderungen ab und sollten einheitlich navigierbar sein.
+Parallel dazu: Feedbackkanäle für frühe Kund*innen einrichten, damit du Verbesserungen schnell identifizieren kannst.
+Phase 2: Kunden‑Erlebnis erweitern
+Füge den App‑Store hinzu, damit Kund*innen zusätzliche KI‑Module installieren können. Erweitere die Billing‑Seite um Guthaben‑Angebote und Abos (inklusive Transaktionshistorie und Wallet‑Verwaltung). Integriere ein Support‑System mit Chatbot und Wissensdatenbank sowie die Wunschliste für Feature‑Requests.
+Phase 3: Automatisierung & Integration
+Implementiere den Workflow‑Builder mit Drag‑and‑Drop‑Interface und Code‑Schritten. Parallel dazu: Seite für eigene Applikationen und Integrationen bereitstellen, damit Kund*innen ihre Systeme an die API anschließen können.
+Erweitere den App‑Store um personalisierte Empfehlungen und sorge für intuitives Navigationsdesign in allen Bereichen.
+Phase 4: Optimierung & Skalierung
+Nach dem Rollout der Kernfunktionen sollten Analysen und Kunden‑Feedback ausgewertet werden, um die Nutzerführung zu verbessern, Sicherheits‑ und Abrechnungsprozesse zu optimieren und zusätzliche Module zu entwickeln. Ein ausgereiftes Kundenportal ist stetig im Ausbau und berücksichtigt auch Datenschutz, Mehrsprachigkeit und mobile Nutzung.

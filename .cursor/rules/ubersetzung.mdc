@@ -1,0 +1,223 @@
+Hier ist eine **klare, umsetzbare Roadmap**, um **Mehrsprachigkeit (DE/EN)** in deinem **Next.js 16 + React 19** Dashboard einzubauen – **sauber modular** und **später erweiterbar**.
+Empfehlung: **next-intl** (App Router-friendly).
+
+---
+
+## Roadmap Mehrsprachigkeit (DE/EN) – Einbindung mit `next-intl`
+
+### Phase 0 – Ziel & Prinzipien (Definition)
+
+**Ziel:** `/de/...` und `/en/...` Routen, UI-Texte zentral verwaltet, keine Hardcodes.
+**Prinzipien:**
+
+* **Routing-basiert** (SEO/clean URLs)
+* **Modular**: i18n in eigenem Ordner (leicht in andere Projekte kopierbar)
+* **Dynamisch**: Texte kommen aus Message-Files, nicht aus Komponenten
+
+**To-Do**
+
+* Locale-Liste definieren: `['de', 'en']`
+* Default Locale: `de`
+* Fallback Locale: `en` (oder umgekehrt)
+
+---
+
+## Phase 1 – Grundsetup (Projektstruktur + Routing)
+
+### 1.1 Ordnerstruktur hinzufügen
+
+**To-Do**
+
+* Lege folgende Struktur an:
+
+```txt
+src/
+  app/
+    [locale]/
+      (dashboard)/
+        layout.tsx
+        dashboard/page.tsx
+        ...
+  i18n/
+    routing.ts
+    request.ts
+  messages/
+    de.json
+    en.json
+```
+
+### 1.2 Locale-Routing aktivieren
+
+**To-Do**
+
+* Alle Dashboard-Seiten liegen unter `app/[locale]/...`
+* Optional: Route Groups `(dashboard)` erwähnt (nur für Struktur)
+
+**Ergebnis**
+
+* URLs funktionieren so:
+
+  * `/de/dashboard`
+  * `/en/dashboard`
+
+---
+
+## Phase 2 – Message-Files & Übersetzungsstruktur
+
+### 2.1 Übersetzungsdateien anlegen
+
+**To-Do**
+
+* `messages/de.json`
+* `messages/en.json`
+
+**Empfohlene Struktur nach Modulen:**
+
+```json
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "apiKeys": "API-Keys"
+  },
+  "dashboard": {
+    "title": "Dashboard-Übersicht",
+    "kpis": {
+      "requests": "Requests",
+      "errors": "Fehler"
+    }
+  }
+}
+```
+
+### 2.2 Benennungskonvention
+
+**To-Do**
+
+* Keys **stabil** halten (nicht ständig umbenennen)
+* Struktur **nach Feature** (nav, dashboard, billing, logs …)
+* Keine Sätze als Keys, sondern **semantische Keys**
+
+---
+
+## Phase 3 – Integration in Layout & Pages
+
+### 3.1 Provider im Layout
+
+**To-Do**
+
+* In `app/[locale]/layout.tsx`:
+
+  * Locale sehen
+  * Messages laden
+  * Provider setzen
+
+**Ergebnis**
+
+* Jede Seite bekommt `t()` Zugriff
+
+### 3.2 Seitenweise Umstellung (Priorität)
+
+**To-Do Reihenfolge (Quick Wins):**
+
+1. Navigation (Sidebar Labels, Header)
+2. Dashboard Überschrift + KPI Labels
+3. Buttons (Create, Save, Delete)
+4. Tabellen-Spalten (Logs, API-Keys, Billing)
+5. Dialog-Texte (Confirm, Forms)
+6. Empty/Error/Loading States
+
+**Regel**
+
+* **Keine Strings im UI**, außer Dummy-Daten (z. B. Log-Message Content)
+
+---
+
+## Phase 4 – Language Switcher + Persistenz
+
+### 4.1 Language Switcher UI
+
+**To-Do**
+
+* Header Dropdown: **DE / EN**
+* OnChange: Route auf gleiche Seite wechseln (nur Locale austauschen)
+
+**Ergebnis**
+
+* Kunde bleibt auf derselben Seite, nur Sprache wechselt
+
+### 4.2 Persistenz (optional)
+
+**To-Do**
+
+* Speichere Auswahl in Cookie oder LocalStorage
+* Default: Browser Language erkennen (optional)
+
+---
+
+## Phase 5 – Formatierung & Qualität
+
+### 5.1 Datums-/Zahlenformat
+
+**To-Do**
+
+* Zahlen, Währungen, Dates lokal formatieren (DE/EN)
+* Besonders wichtig bei:
+
+  * Billing (€, $)
+  * Usage Charts (Zahlen)
+  * Logs (Datum/Uhrzeit)
+
+### 5.2 QA-Checkliste
+
+**To-Do**
+
+* Jede Seite DE/EN testen:
+
+  * Keine fehlenden Keys
+  * Keine Layoutbrüche (lange englische Wörter)
+  * Responsive Check (Mobile/Tablet)
+
+---
+
+## Phase 6 – Skalierbarkeit (später TR etc.)
+
+**To-Do**
+
+* Neue Locale hinzufügen: `tr.json`, Locale-Array erweitern
+* Optional: Messages pro Feature splitten:
+
+  * `messages/de/dashboard.json`
+  * `messages/de/billing.json`
+  * (wenn Projekt größer wird)
+
+---
+
+# Kompakte To-Do Liste (Copy für Projektmanagement)
+
+✅ **Setup**
+
+* [ ] next-intl installieren
+* [ ] `app/[locale]/...` Struktur anlegen
+* [ ] `i18n/` Ordner (routing/request) erstellen
+* [ ] `messages/de.json` & `messages/en.json` erstellen
+
+✅ **Umstellung**
+
+* [ ] Sidebar + Header übersetzen
+* [ ] Dashboard KPIs + Widgets übersetzen
+* [ ] Buttons + Dialoge übersetzen
+* [ ] Tabellen/Filter/States übersetzen
+
+✅ **Switch**
+
+* [ ] Language Switcher in Header
+* [ ] optional Cookie Persistenz
+
+✅ **Qualität**
+
+* [ ] Zahlen/Datum/Währung formatieren
+* [ ] DE/EN QA pro Seite
+
+---
+
+Wenn du willst, schreibe ich dir als nächstes **einen Cursor-Agent Prompt**, der **alles automatisch** umsetzt (inkl. Ordnerstruktur, Provider, Switcher, Beispiel-Keys, Migration der Nav-Labels).
