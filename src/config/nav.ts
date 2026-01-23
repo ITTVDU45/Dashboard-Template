@@ -1,13 +1,5 @@
 import {
   LayoutDashboard,
-  Key,
-  BarChart3,
-  FileText,
-  HardDrive,
-  Store,
-  Bot,
-  Puzzle,
-  Workflow,
   HeadphonesIcon,
   Settings,
   type LucideIcon,
@@ -34,56 +26,11 @@ export const navConfig: NavSection[] = [
         href: "/dashboard",
         icon: LayoutDashboard,
       },
-      {
-        titleKey: "nav.items.marketplace",
-        href: "/marketplace",
-        icon: Store,
-      },
-      {
-        titleKey: "nav.items.assistantMode",
-        href: "/assistant-mode",
-        icon: Bot,
-      },
-    ],
-  },
-  {
-    titleKey: "nav.sections.development",
-    items: [
-      {
-        titleKey: "nav.items.apiKeys",
-        href: "/api-keys",
-        icon: Key,
-      },
-      {
-        titleKey: "nav.items.usage",
-        href: "/usage",
-        icon: BarChart3,
-      },
-      {
-        titleKey: "nav.items.logs",
-        href: "/logs",
-        icon: FileText,
-      },
-      {
-        titleKey: "nav.items.storage",
-        href: "/storage",
-        icon: HardDrive,
-      },
     ],
   },
   {
     titleKey: "nav.sections.account",
     items: [
-      {
-        titleKey: "nav.items.integrations",
-        href: "/integrations",
-        icon: Puzzle,
-      },
-      {
-        titleKey: "nav.items.workflows",
-        href: "/workflows",
-        icon: Workflow,
-      },
       {
         titleKey: "nav.items.support",
         href: "/support",

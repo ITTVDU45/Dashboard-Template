@@ -51,7 +51,7 @@ const endpoints = [
 ];
 
 const codeExamples = {
-  curl: `curl -X POST "https://api.curser.io/v1/chat/completions" \\
+  curl: `curl -X POST "https://api.template.io/v1/chat/completions" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -63,7 +63,7 @@ const codeExamples = {
   python: `import requests
 
 response = requests.post(
-    "https://api.curser.io/v1/chat/completions",
+    "https://api.template.io/v1/chat/completions",
     headers={
         "Authorization": "Bearer YOUR_API_KEY",
         "Content-Type": "application/json"
@@ -77,7 +77,7 @@ response = requests.post(
 )
 print(response.json())`,
   javascript: `const response = await fetch(
-  "https://api.curser.io/v1/chat/completions",
+  "https://api.template.io/v1/chat/completions",
   {
     method: "POST",
     headers: {
@@ -178,11 +178,11 @@ export default function DocsPage() {
         <TabsContent value="intro" className="mt-6 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Willkommen zur Curser API</CardTitle>
+              <CardTitle>Willkommen zur Template API</CardTitle>
             </CardHeader>
             <CardContent className="prose prose-sm max-w-none">
               <p>
-                Die Curser API bietet Zugang zu leistungsstarken KI-Modellen für
+                Die Template API bietet Zugang zu leistungsstarken KI-Modellen für
                 Textgenerierung, Bildgenerierung, Spracherkennung und mehr.
               </p>
               <h3>Schnellstart</h3>
@@ -193,7 +193,7 @@ export default function DocsPage() {
               </ol>
               <h3>Basis-URL</h3>
               <pre className="bg-muted p-3 rounded">
-                https://api.curser.io/v1
+                https://api.template.io/v1
               </pre>
               <h3>Authentifizierung</h3>
               <p>

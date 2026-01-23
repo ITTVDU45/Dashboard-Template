@@ -35,10 +35,10 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         {/* PWA Meta Tags */}
-        <meta name="application-name" content="Curser" />
+        <meta name="application-name" content="Template" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Curser" />
+        <meta name="apple-mobile-web-app-title" content="Template" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#3B82F6" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -47,7 +47,7 @@ export default async function LocaleLayout({
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.svg" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider defaultTheme="dark" storageKey="curser-theme">
+        <ThemeProvider defaultTheme="dark" storageKey="template-theme">
           <NextIntlClientProvider messages={messages}>
             <TooltipProvider>{children}</TooltipProvider>
           </NextIntlClientProvider>

@@ -4,15 +4,14 @@ import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, Key, Store, HeadphonesIcon, Menu } from "lucide-react";
+import { LayoutDashboard, HeadphonesIcon, Settings, Menu } from "lucide-react";
 import { useState } from "react";
 import { MobileMenu } from "./mobile-menu";
 
 const bottomNavItems = [
   { href: "/dashboard", icon: LayoutDashboard, titleKey: "nav.items.dashboard" },
-  { href: "/api-keys", icon: Key, titleKey: "nav.items.apiKeys" },
-  { href: "/marketplace", icon: Store, titleKey: "nav.items.marketplace" },
   { href: "/support", icon: HeadphonesIcon, titleKey: "nav.items.support" },
+  { href: "/settings", icon: Settings, titleKey: "nav.items.settings" },
 ];
 
 export function BottomNav() {

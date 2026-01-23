@@ -4,25 +4,13 @@
     "menu": "Menu",
     "sections": {
       "overview": "Overview",
-      "development": "Development",
-      "resources": "Resources",
       "account": "Account"
     },
     "items": {
       "dashboard": "Dashboard",
-      "apiKeys": "API Keys",
-      "usage": "Usage",
-      "logs": "Logs",
       "docs": "Documentation",
-      "storage": "Storage",
-      "marketplace": "Marketplace",
-      "integrations": "Integrations",
-      "workflows": "Workflows",
-      "billing": "Billing",
       "support": "Support",
-      "settings": "Settings",
-      "wishlist": "Wishlist",
-      "assistantMode": "Assistant Mode"
+      "settings": "Settings"
     }
   },
   "offline": {
@@ -102,11 +90,11 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "description": "Overview of your AI services",
+    "description": "Overview of your services",
     "kpis": {
       "requests": "Requests (30 days)",
       "successRate": "Success Rate",
-      "activeKeys": "Active API Keys",
+      "activeKeys": "Active Keys",
       "balance": "Balance",
       "total": "total",
       "available": "Available"
@@ -119,413 +107,16 @@
     },
     "quickActions": {
       "title": "Quick Access",
-      "manageKeys": "Manage API Keys",
-      "manageKeysDesc": "Create and manage keys",
+      "manageKeys": "Settings",
+      "manageKeysDesc": "Manage configuration",
       "documentation": "Documentation",
-      "documentationDesc": "API reference and guides",
+      "documentationDesc": "Reference and guides",
       "topUp": "Top Up Balance",
       "topUpDesc": "Purchase credits",
       "support": "Support",
       "supportDesc": "Help and contact"
     },
-    "newApiKey": "New API Key"
-  },
-  "apiKeys": {
-    "title": "API Keys",
-    "description": "Manage your API keys",
-    "newKey": "New API Key",
-    "createTitle": "Create new API Key",
-    "createDescription": "Create a new API key for your application",
-    "table": {
-      "name": "Name",
-      "key": "API Key",
-      "status": "Status",
-      "requests": "Requests",
-      "lastUsed": "Last Used",
-      "createdAt": "Created At",
-      "expiresAt": "Expires At",
-      "permissions": "Permissions"
-    },
-    "form": {
-      "name": "Name",
-      "namePlaceholder": "e.g. Production API",
-      "permissions": "Permissions"
-    },
-    "actions": {
-      "showDetails": "Show details",
-      "copyKey": "Copy key",
-      "revoke": "Revoke",
-      "revokeTitle": "Revoke API Key",
-      "revokeDescription": "Are you sure you want to revoke the API key \"{name}\"? This action cannot be undone."
-    },
-    "messages": {
-      "created": "API key successfully created",
-      "revoked": "API key has been revoked",
-      "copied": "Copied to clipboard",
-      "createError": "Error creating API key",
-      "revokeError": "Error revoking API key"
-    },
-    "empty": {
-      "title": "No API keys found",
-      "description": "Create your first API key",
-      "descriptionFiltered": "Try different filter criteria",
-      "action": "Create API Key"
-    },
-    "details": {
-      "title": "API Key Details",
-      "description": "Details and usage statistics"
-    }
-  },
-  "usage": {
-    "title": "Usage",
-    "description": "Analyze your API consumption",
-    "kpis": {
-      "totalRequests": "Total Requests",
-      "successRate": "Success Rate",
-      "errors": "Errors",
-      "avgLatency": "Avg Latency"
-    },
-    "charts": {
-      "requestsOverTime": "Requests over time",
-      "last7Days": "Last 7 days"
-    },
-    "tabs": {
-      "byKey": "By API Key",
-      "byEndpoint": "By Endpoint",
-      "byStatus": "By Status"
-    },
-    "table": {
-      "apiKey": "API Key",
-      "requests": "Requests",
-      "successRate": "Success Rate",
-      "endpoint": "Endpoint",
-      "avgLatency": "Avg Latency"
-    },
-    "status": {
-      "success": "Successful Requests (2xx)",
-      "clientErrors": "Client Errors (4xx)",
-      "serverErrors": "Server Errors (5xx)"
-    },
-    "vsLastMonth": "vs. last month",
-    "messages": {
-      "exportPreparing": "Preparing export...",
-      "exportSuccess": "Export successfully downloaded"
-    }
-  },
-  "logs": {
-    "title": "Logs",
-    "description": "Logs of your API requests",
-    "table": {
-      "timestamp": "Timestamp",
-      "method": "Method",
-      "endpoint": "Endpoint",
-      "status": "Status",
-      "duration": "Duration",
-      "apiKey": "API Key",
-      "ip": "IP Address",
-      "userAgent": "User Agent",
-      "requestBody": "Request Body",
-      "responseBody": "Response Body"
-    },
-    "filters": {
-      "searchPlaceholder": "Search endpoint or key...",
-      "status": "Status",
-      "status2xx": "2xx Success",
-      "status4xx": "4xx Client Error",
-      "status5xx": "5xx Server Error"
-    },
-    "details": {
-      "title": "Log Details"
-    },
-    "empty": {
-      "title": "No logs found",
-      "description": "No logs found matching your filter criteria"
-    }
-  },
-  "storage": {
-    "title": "Storage",
-    "description": "Manage your files",
-    "uploadButton": "Upload file",
-    "usage": {
-      "title": "Storage usage"
-    },
-    "table": {
-      "name": "Name",
-      "size": "Size",
-      "type": "Type",
-      "uploadedAt": "Uploaded",
-      "uploadedBy": "By"
-    },
-    "upload": {
-      "title": "Upload file",
-      "description": "Choose a file from your computer",
-      "dragDrop": "Drag file here or",
-      "uploading": "Uploading...",
-      "success": "File uploaded successfully"
-    },
-    "delete": {
-      "title": "Delete file",
-      "description": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
-      "success": "File deleted successfully",
-      "error": "Error deleting file"
-    },
-    "preview": {
-      "title": "File details",
-      "description": "File information and preview",
-      "size": "Size",
-      "type": "Type",
-      "uploadedBy": "Uploaded by",
-      "uploadedAt": "Uploaded at",
-      "downloadStarted": "Download started"
-    },
-    "empty": {
-      "title": "No files found",
-      "description": "Upload your first file",
-      "descriptionFiltered": "Try different search terms"
-    },
-    "searchPlaceholder": "Search files..."
-  },
-  "billing": {
-    "title": "Billing",
-    "description": "Balance and billing",
-    "balance": {
-      "current": "Current Balance",
-      "estimate": "Sufficient for approx. {days} days at current consumption"
-    },
-    "usage": {
-      "monthly": "Usage (Month)",
-      "daily": "Avg Daily Usage",
-      "basedOnMonth": "Based on this month"
-    },
-    "topUp": {
-      "button": "Top Up Balance",
-      "title": "Top Up Balance",
-      "description": "Select an amount or enter a custom one",
-      "customAmount": "Custom Amount",
-      "confirm": "Top Up Now",
-      "processing": "Processing...",
-      "success": "{amount} € has been credited to your account",
-      "creditAdded": "Balance topped up"
-    },
-    "plans": {
-      "title": "Plans & Pricing",
-      "popular": "Popular",
-      "currentPlan": "Current Plan",
-      "selectPlan": "Select Plan",
-      "perMonth": "/ month",
-      "changePending": "Plan change will be implemented"
-    },
-    "transactions": {
-      "title": "Transactions",
-      "type": "Type",
-      "description": "Description",
-      "amount": "Amount",
-      "balance": "Balance",
-      "date": "Date",
-      "types": {
-        "topup": "Top Up",
-        "usage": "Usage",
-        "refund": "Refund",
-        "bonus": "Bonus"
-      }
-    }
-  },
-  "marketplace": {
-    "title": "Marketplace",
-    "description": "Discover AI apps and extensions",
-    "tabs": {
-      "all": "All Apps",
-      "installed": "Installed"
-    },
-    "filters": {
-      "category": "Category",
-      "searchPlaceholder": "Search apps..."
-    },
-    "sort": {
-      "popular": "Most Popular",
-      "rating": "Best Rating",
-      "newest": "Newest"
-    },
-    "price": {
-      "free": "Free",
-      "perMonth": "€/month",
-      "perUse": "€ per use"
-    },
-    "actions": {
-      "install": "Install",
-      "installed": "Installed",
-      "uninstall": "Uninstall",
-      "details": "Details",
-      "manage": "Manage"
-    },
-    "messages": {
-      "installSuccess": "App successfully installed",
-      "installError": "Error installing app",
-      "uninstallSuccess": "App uninstalled",
-      "uninstallError": "Error uninstalling app"
-    },
-    "empty": {
-      "title": "No apps found",
-      "description": "Try different search terms or filters",
-      "noInstalled": "No apps installed",
-      "noInstalledDesc": "Discover apps in the Marketplace and install them"
-    },
-    "categories": {
-      "languageModels": "Language Models",
-      "imageGeneration": "Image Generation",
-      "audio": "Audio",
-      "analytics": "Analytics",
-      "documents": "Documents",
-      "development": "Development",
-      "language": "Language",
-      "video": "Video",
-      "security": "Security",
-      "all": "All Categories"
-    },
-    "apps": {
-      "gpt4turbo": {
-        "description": "Latest and most powerful language model",
-        "longDescription": "GPT-4 Turbo is the latest language model with improved performance, larger context window, and more up-to-date knowledge. Perfect for complex text generation, analysis, and conversation."
-      },
-      "dalle3": {
-        "description": "High-quality image generation from text",
-        "longDescription": "DALL-E 3 generates photorealistic images and artwork from text descriptions. Supports various styles and resolutions."
-      },
-      "whisper": {
-        "description": "Speech-to-text transcription",
-        "longDescription": "Whisper transcribes audio in over 50 languages with high accuracy. Supports various audio formats and provides timestamps."
-      },
-      "embeddings": {
-        "description": "Semantic text analysis and search",
-        "longDescription": "Create semantic embeddings for texts. Ideal for similarity search, clustering, and recommendation systems."
-      },
-      "claude3": {
-        "description": "Anthropic's advanced AI model",
-        "longDescription": "Claude 3 offers excellent reasoning capabilities, is particularly safe, and is suitable for complex tasks."
-      },
-      "stableDiffusion": {
-        "description": "Open-source image generation",
-        "longDescription": "Powerful open-source image generation with full control over style and output. Supports LoRA and ControlNet."
-      },
-      "sentimentAnalyzer": {
-        "description": "Real-time sentiment analysis",
-        "longDescription": "Analyze sentiment in texts, social media posts, and customer feedback. Supports multiple languages."
-      },
-      "documentParser": {
-        "description": "Intelligent document extraction",
-        "longDescription": "Extract structured data from PDFs, images, and scanned documents. OCR and layout analysis included."
-      },
-      "codeAssistant": {
-        "description": "AI-powered programming help",
-        "longDescription": "Generate, explain, and debug code in over 20 programming languages. Integration with popular IDEs."
-      },
-      "translationPro": {
-        "description": "Professional translations",
-        "longDescription": "Translate texts in over 100 languages with context-aware AI. Specialized models for subject areas available."
-      },
-      "videoGenerator": {
-        "description": "Text-to-video generation",
-        "longDescription": "Create videos from text descriptions. Supports various styles, lengths, and resolutions."
-      },
-      "dataAnonymizer": {
-        "description": "GDPR-compliant data anonymization",
-        "longDescription": "Automatically anonymize personal data in a GDPR-compliant manner. Detects and masks sensitive information."
-      }
-    }
-  },
-  "integrations": {
-    "title": "Integrations",
-    "description": "Connect external services",
-    "addButton": "Add integration",
-    "lastSync": "Last sync",
-    "wizard": {
-      "selectTitle": "Select integration",
-      "configureTitle": "Configure integration",
-      "step": "Step {current} of {total}",
-      "name": "Integration name",
-      "namePlaceholder": "e.g. My Slack Workspace",
-      "assignKey": "Assign API key (optional)",
-      "noKey": "No key assigned",
-      "createButton": "Create integration",
-      "creating": "Creating..."
-    },
-    "messages": {
-      "updated": "Integration updated",
-      "updateError": "Error updating integration",
-      "created": "Integration successfully created"
-    },
-    "empty": {
-      "title": "No integrations",
-      "description": "Connect your first external services"
-    }
-  },
-  "workflows": {
-    "title": "Workflows",
-    "description": "Automate your processes",
-    "createButton": "New Workflow",
-    "table": {
-      "name": "Name",
-      "status": "Status",
-      "trigger": "Trigger",
-      "lastRun": "Last Run",
-      "runs": "Runs"
-    },
-    "triggers": {
-      "schedule": "Schedule",
-      "webhook": "Webhook",
-      "event": "Event"
-    },
-    "empty": {
-      "title": "No workflows",
-      "description": "Create your first workflow"
-    },
-    "canvas": {
-      "title": "Workflow Canvas",
-      "test": "Test",
-      "pause": "Pause"
-    },
-    "inspector": {
-      "nodes": "Nodes",
-      "inspector": "Inspector",
-      "name": "Name",
-      "config": "Configuration",
-      "selectNode": "Select a node"
-    },
-    "nodeTypes": {
-      "trigger": "Trigger",
-      "triggerDesc": "Starts the workflow",
-      "action": "Action",
-      "actionDesc": "Performs an action",
-      "condition": "Condition",
-      "conditionDesc": "Branches based on rules",
-      "ai": "AI Module",
-      "aiDesc": "Processing with AI"
-    },
-    "workflowNames": {
-      "ticketClassification": "Automatic Ticket Classification",
-      "contentPipeline": "Content Generation Pipeline",
-      "dataBackup": "Data Backup Workflow"
-    },
-    "workflowDescriptions": {
-      "ticketClassification": "Classifies incoming support tickets by priority and category",
-      "contentPipeline": "Automatically generates and publishes blog articles",
-      "dataBackup": "Daily backup of important data to S3"
-    },
-    "nodeNames": {
-      "webhookReceive": "Webhook Receive",
-      "gptAnalysis": "GPT-4 Analysis",
-      "checkPriority": "Check Priority",
-      "slackNotification": "Slack Notification",
-      "updateTicket": "Update Ticket",
-      "schedule": "Schedule",
-      "generateTopic": "Generate Topic",
-      "writeArticle": "Write Article",
-      "generateImage": "Generate Image",
-      "publishCms": "Publish to CMS",
-      "dailyAt2": "Daily at 2:00 AM",
-      "exportData": "Export Data",
-      "s3Upload": "S3 Upload"
-    }
+    "newApiKey": "Settings"
   },
   "support": {
     "title": "Support",
@@ -660,142 +251,15 @@
       "contact": "Legal Contact",
       "contactDesc": "For legal questions, contact us at:",
       "address": "Address"
-    },
-    "limits": {
-      "title": "Limits",
-      "freeTier": "Free Tier",
-      "description": "Limits help us mitigate against misuse and manage API capacity. Rate limits restrict API usage frequency over a certain period of time.",
-      "monitor": "Monitor rate limit usage",
-      "monitorInfo": "Usage monitoring will be available soon.",
-      "modelLimits": "Model Limits",
-      "model": "Model",
-      "requestsPerMinute": "Requests per Minute",
-      "inputTokensPerMinute": "Input Tokens per Minute",
-      "outputTokensPerMinute": "Output Tokens per Minute",
-      "additionalLimits": "Additional Limits",
-      "batchRequests": "Batch Requests",
-      "batchRequestsDesc": "Limit per minute across all models",
-      "webSearch": "Web Search Tool Uses",
-      "webSearchDesc": "Limit per second across all models",
-      "fileUploads": "File Uploads",
-      "fileUploadsDesc": "Maximum file size per upload",
-      "concurrentRequests": "Concurrent Requests",
-      "concurrentRequestsDesc": "Maximum simultaneous requests",
-      "upgradeTitle": "Need higher limits?",
-      "upgradeDesc": "Upgrade to a paid plan for higher rate limits and more features.",
-      "upgradeCta": "Upgrade Plan",
-      "upgradeInfo": "Plan upgrade will be available soon."
     }
-  },
-  "wishlist": {
-    "title": "Feature Requests",
-    "description": "Vote for new features",
-    "addButton": "Suggest Feature",
-    "tabs": {
-      "all": "All Suggestions",
-      "mine": "My Suggestions"
-    },
-    "stats": {
-      "total": "Total",
-      "planned": "Planned",
-      "inProgress": "In Development",
-      "completed": "Completed"
-    },
-    "table": {
-      "title": "Title",
-      "votes": "Votes",
-      "status": "Status",
-      "date": "Date"
-    },
-    "status": {
-      "pending": "Open",
-      "planned": "Planned",
-      "inProgress": "In Development",
-      "completed": "Completed",
-      "rejected": "Rejected"
-    },
-    "sort": {
-      "votes": "Most Votes",
-      "newest": "Newest",
-      "comments": "Most Comments"
-    },
-    "filters": {
-      "searchPlaceholder": "Search suggestions...",
-      "category": "Category"
-    },
-    "categories": {
-      "features": "Features",
-      "api": "API",
-      "uiux": "UI/UX",
-      "integration": "Integration",
-      "security": "Security"
-    },
-    "requests": {
-      "batchApi": {
-        "title": "Batch API for Multiple Requests",
-        "description": "Ability to bundle multiple API requests in one request for better performance."
-      },
-      "darkMode": {
-        "title": "Dark Mode for Dashboard",
-        "description": "A dark theme for the dashboard would be easier on the eyes."
-      },
-      "exportFormats": {
-        "title": "Export in More Formats",
-        "description": "In addition to CSV and JSON, also offer Excel and Parquet as export formats."
-      },
-      "twoFactor": {
-        "title": "Two-Factor Authentication",
-        "description": "2FA for additional security during login."
-      },
-      "mobileApp": {
-        "title": "Mobile App",
-        "description": "A native mobile app for iOS and Android for dashboard monitoring."
-      },
-      "webhookRetry": {
-        "title": "Webhook Retry Logic",
-        "description": "Automatic retry of failed webhook calls with exponential backoff."
-      },
-      "customDashboards": {
-        "title": "Custom Dashboards",
-        "description": "Ability to create custom dashboard layouts with widgets."
-      },
-      "apiPlayground": {
-        "title": "API Playground in Browser",
-        "description": "Interactive API testing directly in the dashboard without external tools."
-      }
-    },
-    "dialog": {
-      "title": "Suggest Feature",
-      "description": "Describe your idea for a new feature",
-      "titleLabel": "Title",
-      "titlePlaceholder": "Brief description of the feature",
-      "category": "Category",
-      "descriptionLabel": "Description",
-      "descriptionPlaceholder": "Detailed description of your suggestion...",
-      "submit": "Submit",
-      "submitting": "Submitting..."
-    },
-    "messages": {
-      "voteError": "Error voting",
-      "fillAll": "Please fill in all fields",
-      "success": "Feature request submitted",
-      "error": "Error submitting"
-    },
-    "empty": {
-      "title": "No suggestions found",
-      "description": "Try different search terms",
-      "noMine": "No own suggestions",
-      "noMineDesc": "Submit your first feature request"
-    },
-    "by": "by"
   },
   "docs": {
     "title": "Documentation",
-    "description": "API reference and guides",
+    "description": "Reference and guides",
     "search": "Search documentation...",
     "sections": {
       "gettingStarted": "Getting Started",
-      "apiReference": "API Reference",
+      "apiReference": "Reference",
       "guides": "Guides",
       "sdks": "SDKs"
     }
@@ -806,7 +270,7 @@
     "showAll": "Show all",
     "aiReady": "AI Ready",
     "docs": "Docs",
-    "apiReference": "API Reference",
+    "apiReference": "Reference",
     "profile": "Profile",
     "settings": "Settings",
     "logout": "Logout"
@@ -821,28 +285,6 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
-  },
-  "assistantMode": {
-    "title": "Assistant Mode",
-    "description": "Your intelligent AI assistant for automated tasks and conversations.",
-    "comingSoon": {
-      "title": "Coming Soon",
-      "description": "We're building a powerful AI assistant that will revolutionize your workflows. Stay tuned!"
-    },
-    "features": {
-      "chat": {
-        "title": "Intelligent Conversation",
-        "description": "Natural conversations with contextual understanding and precise responses."
-      },
-      "automation": {
-        "title": "Workflow Automation",
-        "description": "Automate repetitive tasks and boost your productivity."
-      },
-      "ai": {
-        "title": "AI-Powered Analysis",
-        "description": "Get data-driven insights and recommendations in real-time."
-      }
-    }
   },
   "profile": {
     "title": "Profile",
@@ -924,31 +366,31 @@
       "deleteAccountDesc": "This action cannot be undone.",
       "delete": "Delete Account",
       "deleteConfirmTitle": "Are you sure?",
-      "deleteConfirmDesc": "This action is irreversible. All your data, API keys and integrations will be permanently deleted.",
+      "deleteConfirmDesc": "This action is irreversible. All your data will be permanently deleted.",
       "deleteConfirm": "Yes, delete account",
       "deleteBlocked": "Account deletion disabled in demo"
     }
   },
   "chat": {
-    "title": "Curser AI",
+    "title": "AI Assistant",
     "subtitle": "Always here for you",
     "placeholder": "Type a message...",
     "disclaimer": "AI can make mistakes. Verify important information.",
     "welcome": {
       "title": "How can I help?",
-      "description": "Ask me about APIs, integrations, or support topics."
+      "description": "Ask me about support topics."
     },
     "prompts": {
-      "apiHelp": "How do I create an API key?",
+      "apiHelp": "How do I create a ticket?",
       "pricing": "What does the Pro plan cost?",
-      "integration": "How do I integrate the API?"
+      "integration": "How does support work?"
     },
     "responses": {
-      "greeting": "Hello! I'm Curser AI, your personal assistant. I'm happy to help with questions about our platform, API integration, or technical topics. What would you like to know?",
-      "help": "I can help you with various topics: API key management, usage statistics, billing, integrations, and more. Just describe your concern!",
-      "apiInfo": "To create an API key, go to 'API Keys' in the sidebar and click 'New API Key'. Enter a name and select the desired permissions.",
+      "greeting": "Hello! I'm your personal assistant. I'm happy to help with questions about our platform. What would you like to know?",
+      "help": "I can help you with various topics. Just describe your concern!",
+      "apiInfo": "To get help, go to 'Support' in the sidebar and create a ticket.",
       "support": "For more complex issues, you can create a support ticket under 'Support' in the sidebar. Our team typically responds within 24 hours.",
-      "features": "Our platform offers numerous features: API management, usage analytics, workflow automation, marketplace for extensions, and much more. What would you like to learn more about?"
+      "features": "Our platform offers numerous features. What would you like to learn more about?"
     }
   }
 }

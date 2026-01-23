@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Curser Dashboard",
-    short_name: "Curser",
-    description: "AI Services Dashboard - Manage your AI integrations",
+    name: "Template Dashboard",
+    short_name: "Template",
+    description: "Template Dashboard",
     start_url: "/de/dashboard",
     display: "standalone",
     background_color: "#0B0F14",

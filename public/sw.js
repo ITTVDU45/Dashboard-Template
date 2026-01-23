@@ -1,4 +1,4 @@
-const CACHE_NAME = "curser-v1";
+const CACHE_NAME = "template-v1";
 const OFFLINE_URL = "/de/offline";
 
 // Assets to cache on install

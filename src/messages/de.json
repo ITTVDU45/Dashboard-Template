@@ -4,25 +4,13 @@
     "menu": "Menu",
     "sections": {
       "overview": "Übersicht",
-      "development": "Entwicklung",
-      "resources": "Ressourcen",
       "account": "Konto"
     },
     "items": {
       "dashboard": "Dashboard",
-      "apiKeys": "API-Keys",
-      "usage": "Nutzung",
-      "logs": "Logs",
       "docs": "Dokumentation",
-      "storage": "Storage",
-      "marketplace": "Marketplace",
-      "integrations": "Integrationen",
-      "workflows": "Workflows",
-      "billing": "Billing",
       "support": "Support",
-      "settings": "Einstellungen",
-      "wishlist": "Wunschliste",
-      "assistantMode": "Assistant Mode"
+      "settings": "Einstellungen"
     }
   },
   "offline": {
@@ -102,11 +90,11 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "description": "Übersicht Ihrer KI-Services",
+    "description": "Übersicht Ihrer Services",
     "kpis": {
       "requests": "Requests (30 Tage)",
       "successRate": "Erfolgsrate",
-      "activeKeys": "Aktive API-Keys",
+      "activeKeys": "Aktive Keys",
       "balance": "Guthaben",
       "total": "insgesamt",
       "available": "Verfügbar"
@@ -119,413 +107,16 @@
     },
     "quickActions": {
       "title": "Schnellzugriff",
-      "manageKeys": "API-Keys verwalten",
-      "manageKeysDesc": "Keys erstellen und verwalten",
+      "manageKeys": "Einstellungen",
+      "manageKeysDesc": "Konfiguration verwalten",
       "documentation": "Dokumentation",
-      "documentationDesc": "API-Referenz und Guides",
+      "documentationDesc": "Referenz und Guides",
       "topUp": "Guthaben aufladen",
       "topUpDesc": "Credits kaufen",
       "support": "Support",
       "supportDesc": "Hilfe und Kontakt"
     },
-    "newApiKey": "Neuer API-Key"
-  },
-  "apiKeys": {
-    "title": "API-Keys",
-    "description": "Verwalten Sie Ihre API-Schlüssel",
-    "newKey": "Neuer API-Key",
-    "createTitle": "Neuen API-Key erstellen",
-    "createDescription": "Erstellen Sie einen neuen API-Key für Ihre Anwendung",
-    "table": {
-      "name": "Name",
-      "key": "API-Key",
-      "status": "Status",
-      "requests": "Requests",
-      "lastUsed": "Zuletzt verwendet",
-      "createdAt": "Erstellt am",
-      "expiresAt": "Läuft ab am",
-      "permissions": "Berechtigungen"
-    },
-    "form": {
-      "name": "Name",
-      "namePlaceholder": "z.B. Production API",
-      "permissions": "Berechtigungen"
-    },
-    "actions": {
-      "showDetails": "Details anzeigen",
-      "copyKey": "Key kopieren",
-      "revoke": "Widerrufen",
-      "revokeTitle": "API-Key widerrufen",
-      "revokeDescription": "Sind Sie sicher, dass Sie den API-Key \"{name}\" widerrufen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
-    },
-    "messages": {
-      "created": "API-Key erfolgreich erstellt",
-      "revoked": "API-Key wurde widerrufen",
-      "copied": "In Zwischenablage kopiert",
-      "createError": "Fehler beim Erstellen des API-Keys",
-      "revokeError": "Fehler beim Widerrufen des API-Keys"
-    },
-    "empty": {
-      "title": "Keine API-Keys gefunden",
-      "description": "Erstellen Sie Ihren ersten API-Key",
-      "descriptionFiltered": "Versuchen Sie andere Filterkriterien",
-      "action": "API-Key erstellen"
-    },
-    "details": {
-      "title": "API-Key Details",
-      "description": "Details und Nutzungsstatistiken"
-    }
-  },
-  "usage": {
-    "title": "Nutzung",
-    "description": "Analysieren Sie Ihren API-Verbrauch",
-    "kpis": {
-      "totalRequests": "Gesamt-Requests",
-      "successRate": "Erfolgsrate",
-      "errors": "Fehler",
-      "avgLatency": "Ø Latenz"
-    },
-    "charts": {
-      "requestsOverTime": "Requests über Zeit",
-      "last7Days": "Letzte 7 Tage"
-    },
-    "tabs": {
-      "byKey": "Nach API-Key",
-      "byEndpoint": "Nach Endpunkt",
-      "byStatus": "Nach Status"
-    },
-    "table": {
-      "apiKey": "API-Key",
-      "requests": "Requests",
-      "successRate": "Erfolgsrate",
-      "endpoint": "Endpunkt",
-      "avgLatency": "Ø Latenz"
-    },
-    "status": {
-      "success": "Erfolgreiche Requests (2xx)",
-      "clientErrors": "Client-Fehler (4xx)",
-      "serverErrors": "Server-Fehler (5xx)"
-    },
-    "vsLastMonth": "vs. Vormonat",
-    "messages": {
-      "exportPreparing": "Export wird vorbereitet...",
-      "exportSuccess": "Export erfolgreich heruntergeladen"
-    }
-  },
-  "logs": {
-    "title": "Logs",
-    "description": "Protokolle Ihrer API-Anfragen",
-    "table": {
-      "timestamp": "Zeitstempel",
-      "method": "Methode",
-      "endpoint": "Endpunkt",
-      "status": "Status",
-      "duration": "Dauer",
-      "apiKey": "API-Key",
-      "ip": "IP-Adresse",
-      "userAgent": "User Agent",
-      "requestBody": "Request Body",
-      "responseBody": "Response Body"
-    },
-    "filters": {
-      "searchPlaceholder": "Endpunkt oder Key suchen...",
-      "status": "Status",
-      "status2xx": "2xx Erfolg",
-      "status4xx": "4xx Client-Fehler",
-      "status5xx": "5xx Server-Fehler"
-    },
-    "details": {
-      "title": "Log Details"
-    },
-    "empty": {
-      "title": "Keine Logs gefunden",
-      "description": "Es wurden keine Logs gefunden, die Ihren Filterkriterien entsprechen"
-    }
-  },
-  "storage": {
-    "title": "Storage",
-    "description": "Verwalten Sie Ihre Dateien",
-    "uploadButton": "Datei hochladen",
-    "usage": {
-      "title": "Speichernutzung"
-    },
-    "table": {
-      "name": "Name",
-      "size": "Größe",
-      "type": "Typ",
-      "uploadedAt": "Hochgeladen",
-      "uploadedBy": "Von"
-    },
-    "upload": {
-      "title": "Datei hochladen",
-      "description": "Wählen Sie eine Datei von Ihrem Computer",
-      "dragDrop": "Datei hierher ziehen oder",
-      "uploading": "Wird hochgeladen...",
-      "success": "Datei erfolgreich hochgeladen"
-    },
-    "delete": {
-      "title": "Datei löschen",
-      "description": "Sind Sie sicher, dass Sie \"{name}\" löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
-      "success": "Datei erfolgreich gelöscht",
-      "error": "Fehler beim Löschen der Datei"
-    },
-    "preview": {
-      "title": "Datei-Details",
-      "description": "Datei-Informationen und Vorschau",
-      "size": "Größe",
-      "type": "Typ",
-      "uploadedBy": "Hochgeladen von",
-      "uploadedAt": "Hochgeladen am",
-      "downloadStarted": "Download gestartet"
-    },
-    "empty": {
-      "title": "Keine Dateien gefunden",
-      "description": "Laden Sie Ihre erste Datei hoch",
-      "descriptionFiltered": "Versuchen Sie andere Suchbegriffe"
-    },
-    "searchPlaceholder": "Dateien suchen..."
-  },
-  "billing": {
-    "title": "Billing",
-    "description": "Guthaben und Abrechnung",
-    "balance": {
-      "current": "Aktuelles Guthaben",
-      "estimate": "Reicht für ca. {days} Tage bei aktuellem Verbrauch"
-    },
-    "usage": {
-      "monthly": "Verbrauch (Monat)",
-      "daily": "Ø Tagesverbrauch",
-      "basedOnMonth": "Basierend auf diesem Monat"
-    },
-    "topUp": {
-      "button": "Guthaben aufladen",
-      "title": "Guthaben aufladen",
-      "description": "Wählen Sie einen Betrag oder geben Sie einen eigenen ein",
-      "customAmount": "Eigener Betrag",
-      "confirm": "Jetzt aufladen",
-      "processing": "Wird verarbeitet...",
-      "success": "{amount} € wurden Ihrem Konto gutgeschrieben",
-      "creditAdded": "Guthaben aufgeladen"
-    },
-    "plans": {
-      "title": "Tarife & Preispläne",
-      "popular": "Beliebt",
-      "currentPlan": "Aktueller Plan",
-      "selectPlan": "Plan wählen",
-      "perMonth": "/ Monat",
-      "changePending": "Plan-Wechsel wird implementiert"
-    },
-    "transactions": {
-      "title": "Transaktionen",
-      "type": "Typ",
-      "description": "Beschreibung",
-      "amount": "Betrag",
-      "balance": "Saldo",
-      "date": "Datum",
-      "types": {
-        "topup": "Aufladung",
-        "usage": "Nutzung",
-        "refund": "Erstattung",
-        "bonus": "Bonus"
-      }
-    }
-  },
-  "marketplace": {
-    "title": "Marketplace",
-    "description": "Entdecken Sie KI-Apps und Erweiterungen",
-    "tabs": {
-      "all": "Alle Apps",
-      "installed": "Installiert"
-    },
-    "filters": {
-      "category": "Kategorie",
-      "searchPlaceholder": "Apps durchsuchen..."
-    },
-    "sort": {
-      "popular": "Beliebteste",
-      "rating": "Beste Bewertung",
-      "newest": "Neueste"
-    },
-    "price": {
-      "free": "Kostenlos",
-      "perMonth": "€/Monat",
-      "perUse": "€ pro Nutzung"
-    },
-    "actions": {
-      "install": "Installieren",
-      "installed": "Installiert",
-      "uninstall": "Deinstallieren",
-      "details": "Details",
-      "manage": "Verwalten"
-    },
-    "messages": {
-      "installSuccess": "App erfolgreich installiert",
-      "installError": "Fehler bei der Installation",
-      "uninstallSuccess": "App deinstalliert",
-      "uninstallError": "Fehler beim Deinstallieren"
-    },
-    "empty": {
-      "title": "Keine Apps gefunden",
-      "description": "Versuchen Sie andere Suchbegriffe oder Filter",
-      "noInstalled": "Keine Apps installiert",
-      "noInstalledDesc": "Entdecken Sie Apps im Marketplace und installieren Sie sie"
-    },
-    "categories": {
-      "languageModels": "Sprachmodelle",
-      "imageGeneration": "Bildgenerierung",
-      "audio": "Audio",
-      "analytics": "Analyse",
-      "documents": "Dokumente",
-      "development": "Entwicklung",
-      "language": "Sprache",
-      "video": "Video",
-      "security": "Sicherheit",
-      "all": "Alle Kategorien"
-    },
-    "apps": {
-      "gpt4turbo": {
-        "description": "Neuestes und leistungsstärkstes Sprachmodell",
-        "longDescription": "GPT-4 Turbo ist das neueste Sprachmodell mit verbesserter Leistung, größerem Kontextfenster und aktuellerem Wissen. Perfekt für komplexe Textgenerierung, Analyse und Konversation."
-      },
-      "dalle3": {
-        "description": "Hochwertige Bildgenerierung aus Text",
-        "longDescription": "DALL-E 3 generiert fotorealistische Bilder und Kunstwerke aus Textbeschreibungen. Unterstützt verschiedene Stile und Auflösungen."
-      },
-      "whisper": {
-        "description": "Sprache-zu-Text Transkription",
-        "longDescription": "Whisper transkribiert Audio in über 50 Sprachen mit hoher Genauigkeit. Unterstützt verschiedene Audioformate und bietet Zeitstempel."
-      },
-      "embeddings": {
-        "description": "Semantische Textanalyse und Suche",
-        "longDescription": "Erstellen Sie semantische Embeddings für Texte. Ideal für Ähnlichkeitssuche, Clustering und Empfehlungssysteme."
-      },
-      "claude3": {
-        "description": "Anthropics fortschrittliches KI-Modell",
-        "longDescription": "Claude 3 bietet hervorragende Reasoning-Fähigkeiten, ist besonders sicher und eignet sich für komplexe Aufgaben."
-      },
-      "stableDiffusion": {
-        "description": "Open-Source Bildgenerierung",
-        "longDescription": "Leistungsstarke Open-Source Bildgenerierung mit voller Kontrolle über Stil und Ausgabe. Unterstützt LoRA und ControlNet."
-      },
-      "sentimentAnalyzer": {
-        "description": "Echtzeit-Stimmungsanalyse",
-        "longDescription": "Analysieren Sie die Stimmung in Texten, Social-Media-Posts und Kundenfeedback. Unterstützt mehrere Sprachen."
-      },
-      "documentParser": {
-        "description": "Intelligente Dokumentenextraktion",
-        "longDescription": "Extrahieren Sie strukturierte Daten aus PDFs, Bildern und gescannten Dokumenten. OCR und Layout-Analyse inklusive."
-      },
-      "codeAssistant": {
-        "description": "KI-gestützte Programmierhelfe",
-        "longDescription": "Generieren, erklären und debuggen Sie Code in über 20 Programmiersprachen. Integration mit gängigen IDEs."
-      },
-      "translationPro": {
-        "description": "Professionelle Übersetzungen",
-        "longDescription": "Übersetzen Sie Texte in über 100 Sprachen mit kontextbewusster KI. Spezialisierte Modelle für Fachgebiete verfügbar."
-      },
-      "videoGenerator": {
-        "description": "Text-zu-Video Generierung",
-        "longDescription": "Erstellen Sie Videos aus Textbeschreibungen. Unterstützt verschiedene Stile, Längen und Auflösungen."
-      },
-      "dataAnonymizer": {
-        "description": "DSGVO-konforme Datenanonymisierung",
-        "longDescription": "Anonymisieren Sie personenbezogene Daten automatisch und DSGVO-konform. Erkennt und maskiert sensible Informationen."
-      }
-    }
-  },
-  "integrations": {
-    "title": "Integrationen",
-    "description": "Verbinden Sie externe Dienste",
-    "addButton": "Integration hinzufügen",
-    "lastSync": "Letzte Sync",
-    "wizard": {
-      "selectTitle": "Integration auswählen",
-      "configureTitle": "Integration konfigurieren",
-      "step": "Schritt {current} von {total}",
-      "name": "Name der Integration",
-      "namePlaceholder": "z.B. Mein Slack Workspace",
-      "assignKey": "API-Key zuweisen (optional)",
-      "noKey": "Keinen Key zuweisen",
-      "createButton": "Integration erstellen",
-      "creating": "Wird erstellt..."
-    },
-    "messages": {
-      "updated": "Integration aktualisiert",
-      "updateError": "Fehler beim Aktualisieren",
-      "created": "Integration erfolgreich erstellt"
-    },
-    "empty": {
-      "title": "Keine Integrationen",
-      "description": "Verbinden Sie Ihre ersten externen Dienste"
-    }
-  },
-  "workflows": {
-    "title": "Workflows",
-    "description": "Automatisieren Sie Ihre Prozesse",
-    "createButton": "Neuer Workflow",
-    "table": {
-      "name": "Name",
-      "status": "Status",
-      "trigger": "Trigger",
-      "lastRun": "Letzter Lauf",
-      "runs": "Ausführungen"
-    },
-    "triggers": {
-      "schedule": "Zeitplan",
-      "webhook": "Webhook",
-      "event": "Ereignis"
-    },
-    "empty": {
-      "title": "Keine Workflows",
-      "description": "Erstellen Sie Ihren ersten Workflow"
-    },
-    "canvas": {
-      "title": "Workflow Canvas",
-      "test": "Test",
-      "pause": "Pause"
-    },
-    "inspector": {
-      "nodes": "Nodes",
-      "inspector": "Inspector",
-      "name": "Name",
-      "config": "Konfiguration",
-      "selectNode": "Wählen Sie einen Node aus"
-    },
-    "nodeTypes": {
-      "trigger": "Trigger",
-      "triggerDesc": "Startet den Workflow",
-      "action": "Aktion",
-      "actionDesc": "Führt eine Aktion aus",
-      "condition": "Bedingung",
-      "conditionDesc": "Verzweigung basierend auf Regeln",
-      "ai": "KI-Modul",
-      "aiDesc": "Verarbeitung mit KI"
-    },
-    "workflowNames": {
-      "ticketClassification": "Automatische Ticket-Klassifizierung",
-      "contentPipeline": "Content-Generierung Pipeline",
-      "dataBackup": "Daten-Backup Workflow"
-    },
-    "workflowDescriptions": {
-      "ticketClassification": "Klassifiziert eingehende Support-Tickets nach Priorität und Kategorie",
-      "contentPipeline": "Generiert und veröffentlicht Blog-Artikel automatisch",
-      "dataBackup": "Tägliches Backup wichtiger Daten zu S3"
-    },
-    "nodeNames": {
-      "webhookReceive": "Webhook Empfang",
-      "gptAnalysis": "GPT-4 Analyse",
-      "checkPriority": "Priorität prüfen",
-      "slackNotification": "Slack Benachrichtigung",
-      "updateTicket": "Ticket aktualisieren",
-      "schedule": "Zeitplan",
-      "generateTopic": "Thema generieren",
-      "writeArticle": "Artikel schreiben",
-      "generateImage": "Bild generieren",
-      "publishCms": "CMS publizieren",
-      "dailyAt2": "Täglich 2:00",
-      "exportData": "Daten exportieren",
-      "s3Upload": "S3 Upload"
-    }
+    "newApiKey": "Einstellungen"
   },
   "support": {
     "title": "Support",
@@ -660,142 +251,15 @@
       "contact": "Rechtlicher Kontakt",
       "contactDesc": "Bei rechtlichen Fragen kontaktieren Sie uns unter:",
       "address": "Adresse"
-    },
-    "limits": {
-      "title": "Limits",
-      "freeTier": "Free Tier",
-      "description": "Limits helfen uns, Missbrauch zu verhindern und die API-Kapazität zu verwalten. Rate Limits beschränken die API-Nutzungshäufigkeit über einen bestimmten Zeitraum.",
-      "monitor": "Nutzung überwachen",
-      "monitorInfo": "Die Nutzungsüberwachung wird in Kürze verfügbar sein.",
-      "modelLimits": "Modell-Limits",
-      "model": "Modell",
-      "requestsPerMinute": "Requests pro Minute",
-      "inputTokensPerMinute": "Input-Token pro Minute",
-      "outputTokensPerMinute": "Output-Token pro Minute",
-      "additionalLimits": "Weitere Limits",
-      "batchRequests": "Batch-Anfragen",
-      "batchRequestsDesc": "Limit pro Minute für alle Modelle",
-      "webSearch": "Web-Suche",
-      "webSearchDesc": "Limit pro Sekunde für alle Modelle",
-      "fileUploads": "Datei-Uploads",
-      "fileUploadsDesc": "Maximale Dateigröße pro Upload",
-      "concurrentRequests": "Parallele Anfragen",
-      "concurrentRequestsDesc": "Maximale gleichzeitige Anfragen",
-      "upgradeTitle": "Benötigen Sie höhere Limits?",
-      "upgradeDesc": "Upgraden Sie auf einen kostenpflichtigen Plan für höhere Rate Limits und mehr Funktionen.",
-      "upgradeCta": "Plan upgraden",
-      "upgradeInfo": "Plan-Upgrade wird in Kürze verfügbar sein."
     }
-  },
-  "wishlist": {
-    "title": "Feature-Wünsche",
-    "description": "Stimmen Sie für neue Features ab",
-    "addButton": "Feature vorschlagen",
-    "tabs": {
-      "all": "Alle Vorschläge",
-      "mine": "Meine Vorschläge"
-    },
-    "stats": {
-      "total": "Gesamt",
-      "planned": "Geplant",
-      "inProgress": "In Entwicklung",
-      "completed": "Fertig"
-    },
-    "table": {
-      "title": "Titel",
-      "votes": "Stimmen",
-      "status": "Status",
-      "date": "Datum"
-    },
-    "status": {
-      "pending": "Offen",
-      "planned": "Geplant",
-      "inProgress": "In Entwicklung",
-      "completed": "Fertig",
-      "rejected": "Abgelehnt"
-    },
-    "sort": {
-      "votes": "Meiste Stimmen",
-      "newest": "Neueste",
-      "comments": "Meiste Kommentare"
-    },
-    "filters": {
-      "searchPlaceholder": "Vorschläge durchsuchen...",
-      "category": "Kategorie"
-    },
-    "categories": {
-      "features": "Features",
-      "api": "API",
-      "uiux": "UI/UX",
-      "integration": "Integration",
-      "security": "Sicherheit"
-    },
-    "requests": {
-      "batchApi": {
-        "title": "Batch-API für mehrere Anfragen",
-        "description": "Möglichkeit, mehrere API-Anfragen in einem Request zu bündeln für bessere Performance."
-      },
-      "darkMode": {
-        "title": "Dark Mode für Dashboard",
-        "description": "Ein dunkles Theme für das Dashboard wäre augenschonender."
-      },
-      "exportFormats": {
-        "title": "Export in mehr Formaten",
-        "description": "Neben CSV und JSON auch Excel und Parquet als Export-Format anbieten."
-      },
-      "twoFactor": {
-        "title": "Zwei-Faktor-Authentifizierung",
-        "description": "2FA für zusätzliche Sicherheit beim Login."
-      },
-      "mobileApp": {
-        "title": "Mobile App",
-        "description": "Eine native mobile App für iOS und Android zur Dashboard-Überwachung."
-      },
-      "webhookRetry": {
-        "title": "Webhook-Retry-Logik",
-        "description": "Automatische Wiederholung fehlgeschlagener Webhook-Aufrufe mit exponentialem Backoff."
-      },
-      "customDashboards": {
-        "title": "Benutzerdefinierte Dashboards",
-        "description": "Möglichkeit, eigene Dashboard-Layouts mit Widgets zu erstellen."
-      },
-      "apiPlayground": {
-        "title": "API-Playground im Browser",
-        "description": "Interaktiver API-Test direkt im Dashboard ohne externe Tools."
-      }
-    },
-    "dialog": {
-      "title": "Feature vorschlagen",
-      "description": "Beschreiben Sie Ihre Idee für ein neues Feature",
-      "titleLabel": "Titel",
-      "titlePlaceholder": "Kurze Beschreibung des Features",
-      "category": "Kategorie",
-      "descriptionLabel": "Beschreibung",
-      "descriptionPlaceholder": "Detaillierte Beschreibung Ihres Vorschlags...",
-      "submit": "Einreichen",
-      "submitting": "Wird eingereicht..."
-    },
-    "messages": {
-      "voteError": "Fehler beim Abstimmen",
-      "fillAll": "Bitte füllen Sie alle Felder aus",
-      "success": "Feature-Wunsch eingereicht",
-      "error": "Fehler beim Einreichen"
-    },
-    "empty": {
-      "title": "Keine Vorschläge gefunden",
-      "description": "Versuchen Sie andere Suchbegriffe",
-      "noMine": "Keine eigenen Vorschläge",
-      "noMineDesc": "Reichen Sie Ihren ersten Feature-Wunsch ein"
-    },
-    "by": "von"
   },
   "docs": {
     "title": "Dokumentation",
-    "description": "API-Referenz und Guides",
+    "description": "Referenz und Guides",
     "search": "Dokumentation durchsuchen...",
     "sections": {
       "gettingStarted": "Erste Schritte",
-      "apiReference": "API-Referenz",
+      "apiReference": "Referenz",
       "guides": "Guides",
       "sdks": "SDKs"
     }
@@ -806,7 +270,7 @@
     "showAll": "Alle anzeigen",
     "aiReady": "AI Ready",
     "docs": "Docs",
-    "apiReference": "API Reference",
+    "apiReference": "Reference",
     "profile": "Profil",
     "settings": "Einstellungen",
     "logout": "Abmelden"
@@ -821,28 +285,6 @@
     "light": "Hell",
     "dark": "Dunkel",
     "system": "System"
-  },
-  "assistantMode": {
-    "title": "Assistant Mode",
-    "description": "Ihr intelligenter KI-Assistent für automatisierte Aufgaben und Konversationen.",
-    "comingSoon": {
-      "title": "Bald verfügbar",
-      "description": "Wir arbeiten an einem leistungsstarken KI-Assistenten, der Ihre Arbeitsabläufe revolutionieren wird. Bleiben Sie dran!"
-    },
-    "features": {
-      "chat": {
-        "title": "Intelligente Konversation",
-        "description": "Natürliche Gespräche mit kontextuellem Verständnis und präzisen Antworten."
-      },
-      "automation": {
-        "title": "Workflow-Automatisierung",
-        "description": "Automatisieren Sie wiederkehrende Aufgaben und steigern Sie Ihre Produktivität."
-      },
-      "ai": {
-        "title": "KI-gestützte Analyse",
-        "description": "Erhalten Sie datengestützte Einblicke und Empfehlungen in Echtzeit."
-      }
-    }
   },
   "profile": {
     "title": "Profil",
@@ -924,31 +366,31 @@
       "deleteAccountDesc": "Diese Aktion kann nicht rückgängig gemacht werden.",
       "delete": "Konto löschen",
       "deleteConfirmTitle": "Sind Sie sicher?",
-      "deleteConfirmDesc": "Diese Aktion ist unwiderruflich. Alle Ihre Daten, API-Keys und Integrationen werden dauerhaft gelöscht.",
+      "deleteConfirmDesc": "Diese Aktion ist unwiderruflich. Alle Ihre Daten werden dauerhaft gelöscht.",
       "deleteConfirm": "Ja, Konto löschen",
       "deleteBlocked": "Kontolöschung in der Demo deaktiviert"
     }
   },
   "chat": {
-    "title": "Curser AI",
+    "title": "AI Assistant",
     "subtitle": "Immer für Sie da",
     "placeholder": "Nachricht eingeben...",
     "disclaimer": "KI kann Fehler machen. Überprüfen Sie wichtige Informationen.",
     "welcome": {
       "title": "Wie kann ich helfen?",
-      "description": "Fragen Sie mich zu APIs, Integrationen oder Support-Themen."
+      "description": "Fragen Sie mich zu Support-Themen."
     },
     "prompts": {
-      "apiHelp": "Wie erstelle ich einen API-Key?",
+      "apiHelp": "Wie erstelle ich ein Ticket?",
       "pricing": "Was kostet der Pro-Plan?",
-      "integration": "Wie integriere ich die API?"
+      "integration": "Wie funktioniert der Support?"
     },
     "responses": {
-      "greeting": "Hallo! Ich bin Curser AI, Ihr persönlicher Assistent. Ich helfe Ihnen gerne bei Fragen zu unserer Plattform, API-Integration oder technischen Themen. Was möchten Sie wissen?",
-      "help": "Ich kann Ihnen bei verschiedenen Themen helfen: API-Key-Verwaltung, Nutzungsstatistiken, Abrechnung, Integrationen und mehr. Beschreiben Sie einfach Ihr Anliegen!",
-      "apiInfo": "Um einen API-Key zu erstellen, gehen Sie zu 'API-Keys' in der Seitenleiste und klicken Sie auf 'Neuer API-Key'. Vergeben Sie einen Namen und wählen Sie die gewünschten Berechtigungen.",
+      "greeting": "Hallo! Ich bin Ihr persönlicher Assistent. Ich helfe Ihnen gerne bei Fragen zu unserer Plattform. Was möchten Sie wissen?",
+      "help": "Ich kann Ihnen bei verschiedenen Themen helfen. Beschreiben Sie einfach Ihr Anliegen!",
+      "apiInfo": "Um Hilfe zu erhalten, gehen Sie zu 'Support' in der Seitenleiste und erstellen Sie ein Ticket.",
       "support": "Bei komplexeren Anliegen können Sie ein Support-Ticket erstellen unter 'Support' in der Seitenleiste. Unser Team antwortet in der Regel innerhalb von 24 Stunden.",
-      "features": "Unsere Plattform bietet zahlreiche Features: API-Management, Nutzungsanalysen, Workflow-Automatisierung, Marketplace für Erweiterungen und vieles mehr. Worüber möchten Sie mehr erfahren?"
+      "features": "Unsere Plattform bietet zahlreiche Features. Worüber möchten Sie mehr erfahren?"
     }
   }
 }

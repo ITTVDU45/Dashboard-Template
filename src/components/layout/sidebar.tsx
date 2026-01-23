@@ -33,7 +33,7 @@ export function Sidebar() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-lg shadow-glow transition-all duration-200 group-hover:scale-105">
             C
           </div>
-          <span className="text-xl font-bold text-foreground tracking-tight">Curser</span>
+          <span className="text-xl font-bold text-foreground tracking-tight">Template</span>
         </Link>
       </div>
 

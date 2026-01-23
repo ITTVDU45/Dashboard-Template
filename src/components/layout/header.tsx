@@ -35,7 +35,7 @@ export function Header() {
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
           C
         </div>
-        <span className="text-lg font-bold text-foreground">Curser</span>
+        <span className="text-lg font-bold text-foreground">Template</span>
       </Link>
 
       <div className="flex flex-1 items-center gap-2 md:gap-4">
