@@ -611,6 +611,29 @@
       "timezone": "Zeitzone",
       "theme": "Design"
     },
+    "members": {
+      "title": "Mitglieder",
+      "description": "Verwalten Sie die Mitglieder Ihrer Organisation",
+      "organization": "Ihre Organisation",
+      "orgName": "Organisationsname",
+      "orgId": "Organisations-ID",
+      "saved": "Änderungen gespeichert",
+      "invite": "Mitglied einladen",
+      "inviteSent": "Einladung wurde gesendet",
+      "inviteResent": "Einladung wurde erneut gesendet",
+      "inviteCancelled": "Einladung wurde zurückgezogen",
+      "removed": "Mitglied wurde entfernt",
+      "pending": "Ausstehend",
+      "pendingInvites": "Ausstehende Einladungen",
+      "sentOn": "Gesendet am",
+      "resend": "Erneut senden",
+      "roles": {
+        "owner": "Inhaber",
+        "admin": "Administrator",
+        "member": "Mitglied",
+        "viewer": "Betrachter"
+      }
+    },
     "legal": {
       "title": "Legal Center",
       "description": "Rechtliche Dokumente und Datenschutzinformationen",

@@ -611,6 +611,29 @@
       "timezone": "Timezone",
       "theme": "Theme"
     },
+    "members": {
+      "title": "Members",
+      "description": "Manage the members of your organization",
+      "organization": "Your Organization",
+      "orgName": "Organization Name",
+      "orgId": "Organization ID",
+      "saved": "Changes saved",
+      "invite": "Invite Member",
+      "inviteSent": "Invitation has been sent",
+      "inviteResent": "Invitation has been resent",
+      "inviteCancelled": "Invitation has been cancelled",
+      "removed": "Member has been removed",
+      "pending": "Pending",
+      "pendingInvites": "Pending Invitations",
+      "sentOn": "Sent on",
+      "resend": "Resend",
+      "roles": {
+        "owner": "Owner",
+        "admin": "Admin",
+        "member": "Member",
+        "viewer": "Viewer"
+      }
+    },
     "legal": {
       "title": "Legal Center",
       "description": "Legal documents and privacy information",

@@ -34,9 +34,11 @@ import {
   Bell, Webhook, User, Save, Plus, Eye, EyeOff, Copy, CreditCard, 
   ArrowUpRight, ArrowDownRight, Wallet, TrendingUp, Check, Lightbulb,
   ThumbsUp, MessageSquare, Clock, CheckCircle, Gauge, ExternalLink,
-  Scale, FileText, Shield, Database, Settings2
+  Scale, FileText, Shield, Database, Settings2, Users, Building2,
+  Crown, UserPlus, MoreHorizontal, Trash2, Mail
 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { toast } from "sonner";
 import * as api from "@/lib/mock/api";
 import type { Webhook as WebhookType, UserProfile, Transaction, Plan, FeatureRequest } from "@/types/domain";
@@ -434,6 +436,10 @@ export default function SettingsPage() {
           <TabsTrigger value="legal" className="gap-2">
             <Scale className="h-4 w-4" />
             <span className="hidden sm:inline">{t("legal.title")}</span>
+          </TabsTrigger>
+          <TabsTrigger value="members" className="gap-2">
+            <Users className="h-4 w-4" />
+            <span className="hidden sm:inline">{t("members.title")}</span>
           </TabsTrigger>
         </TabsList>
 
@@ -1049,6 +1055,169 @@ export default function SettingsPage() {
               <div className="space-y-2 text-sm">
                 <div><span className="text-muted-foreground">E-Mail:</span> <span className="text-foreground">legal@curser.ai</span></div>
                 <div><span className="text-muted-foreground">{t("legal.address")}:</span> <span className="text-foreground">Curser GmbH, Musterstraße 123, 10115 Berlin</span></div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="members" className="mt-6 space-y-6">
+          {/* Organization Info */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-foreground">{t("members.organization")}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label className="text-muted-foreground">{t("members.orgName")}</Label>
+                  <Input
+                    value="Tolgahan's Organization"
+                    className="bg-muted/50 border-border"
+                    onChange={() => {}}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-muted-foreground">{t("members.orgId")}</Label>
+                  <div className="flex gap-2">
+                    <Input
+                      value="f20ca876-eb75-43d9-8a32-60b44cc17076"
+                      className="bg-muted/50 border-border font-mono text-sm"
+                      readOnly
+                    />
+                    <Button 
+                      variant="outline" 
+                      size="icon"
+                      onClick={() => {
+                        navigator.clipboard.writeText("f20ca876-eb75-43d9-8a32-60b44cc17076");
+                        toast.success(tCommon("status.success"));
+                      }}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <Button onClick={() => toast.success(t("members.saved"))}>
+                  <Save className="h-4 w-4 mr-2" />
+                  {tCommon("actions.save")}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Members List */}
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between">
+              <div>
+                <CardTitle className="text-foreground">{t("members.title")}</CardTitle>
+                <p className="text-sm text-muted-foreground mt-1">{t("members.description")}</p>
+              </div>
+              <Button onClick={() => toast.info(t("members.inviteSent"))}>
+                <UserPlus className="h-4 w-4 mr-2" />
+                {t("members.invite")}
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <div className="divide-y divide-border">
+                {[
+                  { name: "Max Mustermann", email: "max@example.com", role: "owner", status: "active" },
+                  { name: "Anna Schmidt", email: "anna@example.com", role: "admin", status: "active" },
+                  { name: "Tom Weber", email: "tom@example.com", role: "member", status: "active" },
+                  { name: "Lisa Müller", email: "lisa@example.com", role: "member", status: "pending" },
+                ].map((member, idx) => (
+                  <div key={idx} className="flex items-center justify-between py-4">
+                    <div className="flex items-center gap-4">
+                      <Avatar className="h-10 w-10">
+                        <AvatarFallback className="bg-primary/10 text-primary">
+                          {member.name.split(" ").map(n => n[0]).join("")}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium text-foreground">{member.name}</span>
+                          {member.role === "owner" && (
+                            <Crown className="h-4 w-4 text-yellow-500" />
+                          )}
+                          {member.status === "pending" && (
+                            <Badge variant="outline" className="text-xs">{t("members.pending")}</Badge>
+                          )}
+                        </div>
+                        <div className="text-sm text-muted-foreground">{member.email}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Select defaultValue={member.role} disabled={member.role === "owner"}>
+                        <SelectTrigger className="w-[120px] h-9">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="owner">{t("members.roles.owner")}</SelectItem>
+                          <SelectItem value="admin">{t("members.roles.admin")}</SelectItem>
+                          <SelectItem value="member">{t("members.roles.member")}</SelectItem>
+                          <SelectItem value="viewer">{t("members.roles.viewer")}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {member.role !== "owner" && (
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="h-9 w-9 text-muted-foreground hover:text-destructive"
+                          onClick={() => toast.info(t("members.removed"))}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Pending Invitations */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-foreground">{t("members.pendingInvites")}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="divide-y divide-border">
+                {[
+                  { email: "new.member@example.com", role: "member", sentAt: "2025-01-22T10:00:00Z" },
+                  { email: "developer@company.com", role: "admin", sentAt: "2025-01-21T14:30:00Z" },
+                ].map((invite, idx) => (
+                  <div key={idx} className="flex items-center justify-between py-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
+                        <Mail className="h-5 w-5 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">{invite.email}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {t("members.sentOn")} {new Date(invite.sentAt).toLocaleDateString(locale === "de" ? "de-DE" : "en-US")}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline">{t(`members.roles.${invite.role}`)}</Badge>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => toast.info(t("members.inviteResent"))}
+                      >
+                        {t("members.resend")}
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="h-9 w-9 text-muted-foreground hover:text-destructive"
+                        onClick={() => toast.info(t("members.inviteCancelled"))}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
