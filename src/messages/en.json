@@ -21,7 +21,8 @@
       "billing": "Billing",
       "support": "Support",
       "settings": "Settings",
-      "wishlist": "Wishlist"
+      "wishlist": "Wishlist",
+      "assistantMode": "Assistant Mode"
     }
   },
   "offline": {
@@ -609,6 +610,58 @@
       "language": "Language",
       "timezone": "Timezone",
       "theme": "Theme"
+    },
+    "legal": {
+      "title": "Legal Center",
+      "description": "Legal documents and privacy information",
+      "commercialTerms": "Commercial Terms",
+      "commercialTermsDesc": "Our general terms and conditions",
+      "usagePolicy": "Usage Policy",
+      "usagePolicyDesc": "Guidelines for using our services",
+      "privacyPolicy": "Privacy Policy",
+      "privacyPolicyDesc": "How we protect your data",
+      "dataRetention": "Data Retention",
+      "dataRetentionDesc": "Information about data storage duration",
+      "privacyChoices": "Your Privacy Choices",
+      "privacyChoicesDesc": "Manage your privacy settings",
+      "dataManagement": "Data Management",
+      "dataManagementDesc": "Manage your personal data",
+      "downloadData": "Download Data",
+      "downloadDataDesc": "Download a copy of all your data",
+      "download": "Download",
+      "downloadStarted": "Download is being prepared...",
+      "requestDeletion": "Request Data Deletion",
+      "requestDeletionDesc": "Request the deletion of your data",
+      "requestButton": "Submit Request",
+      "deletionRequested": "Deletion request is being processed...",
+      "contact": "Legal Contact",
+      "contactDesc": "For legal questions, contact us at:",
+      "address": "Address"
+    },
+    "limits": {
+      "title": "Limits",
+      "freeTier": "Free Tier",
+      "description": "Limits help us mitigate against misuse and manage API capacity. Rate limits restrict API usage frequency over a certain period of time.",
+      "monitor": "Monitor rate limit usage",
+      "monitorInfo": "Usage monitoring will be available soon.",
+      "modelLimits": "Model Limits",
+      "model": "Model",
+      "requestsPerMinute": "Requests per Minute",
+      "inputTokensPerMinute": "Input Tokens per Minute",
+      "outputTokensPerMinute": "Output Tokens per Minute",
+      "additionalLimits": "Additional Limits",
+      "batchRequests": "Batch Requests",
+      "batchRequestsDesc": "Limit per minute across all models",
+      "webSearch": "Web Search Tool Uses",
+      "webSearchDesc": "Limit per second across all models",
+      "fileUploads": "File Uploads",
+      "fileUploadsDesc": "Maximum file size per upload",
+      "concurrentRequests": "Concurrent Requests",
+      "concurrentRequestsDesc": "Maximum simultaneous requests",
+      "upgradeTitle": "Need higher limits?",
+      "upgradeDesc": "Upgrade to a paid plan for higher rate limits and more features.",
+      "upgradeCta": "Upgrade Plan",
+      "upgradeInfo": "Plan upgrade will be available soon."
     }
   },
   "wishlist": {
@@ -729,6 +782,8 @@
     "notifications": "Notifications",
     "showAll": "Show all",
     "aiReady": "AI Ready",
+    "docs": "Docs",
+    "apiReference": "API Reference",
     "profile": "Profile",
     "settings": "Settings",
     "logout": "Logout"
@@ -743,5 +798,134 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "assistantMode": {
+    "title": "Assistant Mode",
+    "description": "Your intelligent AI assistant for automated tasks and conversations.",
+    "comingSoon": {
+      "title": "Coming Soon",
+      "description": "We're building a powerful AI assistant that will revolutionize your workflows. Stay tuned!"
+    },
+    "features": {
+      "chat": {
+        "title": "Intelligent Conversation",
+        "description": "Natural conversations with contextual understanding and precise responses."
+      },
+      "automation": {
+        "title": "Workflow Automation",
+        "description": "Automate repetitive tasks and boost your productivity."
+      },
+      "ai": {
+        "title": "AI-Powered Analysis",
+        "description": "Get data-driven insights and recommendations in real-time."
+      }
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Manage your personal information and account settings.",
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "quickInfo": "Quick Info",
+    "accountInfo": "Account Info",
+    "memberSince": "Member since",
+    "lastLogin": "Last login",
+    "messages": {
+      "saved": "Profile saved successfully",
+      "error": "Error saving profile"
+    },
+    "avatar": {
+      "uploadInfo": "Click to upload a new profile picture"
+    },
+    "tabs": {
+      "general": "General",
+      "contact": "Contact",
+      "social": "Social",
+      "security": "Security"
+    },
+    "general": {
+      "personalInfo": "Personal Information",
+      "personalInfoDesc": "Update your personal details.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "bio": "Bio",
+      "bioPlaceholder": "Tell us about yourself...",
+      "workInfo": "Work Information",
+      "workInfoDesc": "Information about your professional role.",
+      "jobTitle": "Job Title",
+      "department": "Department",
+      "company": "Company",
+      "location": "Location"
+    },
+    "contact": {
+      "title": "Contact Details",
+      "description": "Update your contact information.",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "verify": "Verify",
+      "preferences": "Preferences",
+      "preferencesDesc": "Language and timezone settings.",
+      "language": "Language",
+      "timezone": "Timezone"
+    },
+    "social": {
+      "title": "Social Media",
+      "description": "Link your social media profiles.",
+      "website": "Website"
+    },
+    "security": {
+      "twoFactor": "Two-Factor Authentication",
+      "twoFactorDesc": "Increase your account security with 2FA.",
+      "twoFactorEnabled": "2FA Enabled",
+      "twoFactorDisabled": "2FA Disabled",
+      "twoFactorEnabledDesc": "Your account is protected by 2FA.",
+      "twoFactorDisabledDesc": "Enable 2FA for additional security.",
+      "twoFactorActivated": "Two-factor authentication enabled",
+      "twoFactorDeactivated": "Two-factor authentication disabled",
+      "changePassword": "Change Password",
+      "changePasswordDesc": "Update your account password.",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "updatePassword": "Update Password",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 8 characters",
+      "passwordChanged": "Password changed successfully",
+      "dangerZone": "Danger Zone",
+      "dangerZoneDesc": "Irreversible actions for your account.",
+      "exportData": "Export Data",
+      "exportDataDesc": "Download all your account data.",
+      "export": "Export",
+      "exportStarted": "Export is being prepared...",
+      "deleteAccount": "Delete Account",
+      "deleteAccountDesc": "This action cannot be undone.",
+      "delete": "Delete Account",
+      "deleteConfirmTitle": "Are you sure?",
+      "deleteConfirmDesc": "This action is irreversible. All your data, API keys and integrations will be permanently deleted.",
+      "deleteConfirm": "Yes, delete account",
+      "deleteBlocked": "Account deletion disabled in demo"
+    }
+  },
+  "chat": {
+    "title": "Curser AI",
+    "subtitle": "Always here for you",
+    "placeholder": "Type a message...",
+    "disclaimer": "AI can make mistakes. Verify important information.",
+    "welcome": {
+      "title": "How can I help?",
+      "description": "Ask me about APIs, integrations, or support topics."
+    },
+    "prompts": {
+      "apiHelp": "How do I create an API key?",
+      "pricing": "What does the Pro plan cost?",
+      "integration": "How do I integrate the API?"
+    },
+    "responses": {
+      "greeting": "Hello! I'm Curser AI, your personal assistant. I'm happy to help with questions about our platform, API integration, or technical topics. What would you like to know?",
+      "help": "I can help you with various topics: API key management, usage statistics, billing, integrations, and more. Just describe your concern!",
+      "apiInfo": "To create an API key, go to 'API Keys' in the sidebar and click 'New API Key'. Enter a name and select the desired permissions.",
+      "support": "For more complex issues, you can create a support ticket under 'Support' in the sidebar. Our team typically responds within 24 hours.",
+      "features": "Our platform offers numerous features: API management, usage analytics, workflow automation, marketplace for extensions, and much more. What would you like to learn more about?"
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
 import { BottomNav } from "@/components/layout/bottom-nav";
+import { ChatWidget } from "@/components/chat/chat-widget";
 import { Toaster } from "@/components/ui/sonner";
 
 export default function DashboardLayout({
@@ -16,6 +17,7 @@ export default function DashboardLayout({
         <main className="p-4 md:p-6">{children}</main>
       </div>
       <BottomNav />
+      <ChatWidget />
       <Toaster 
         position="top-center"
         toastOptions={{

@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Search, User, Globe } from "lucide-react";
+import { Bell, Search, User, Globe, BookOpen, Code2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter, Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,22 @@ export function Header() {
       </div>
       
       <div className="flex items-center gap-1 md:gap-3">
+        {/* Docs & API Reference - Desktop only */}
+        <div className="hidden lg:flex items-center gap-1">
+          <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
+            <Link href="/docs" className="flex items-center gap-1.5">
+              <BookOpen className="h-4 w-4" />
+              <span>{t("header.docs")}</span>
+            </Link>
+          </Button>
+          <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
+            <Link href="/docs#api" className="flex items-center gap-1.5">
+              <Code2 className="h-4 w-4" />
+              <span>{t("header.apiReference")}</span>
+            </Link>
+          </Button>
+        </div>
+
         {/* Theme Toggle */}
         <ThemeToggle />
 
@@ -141,11 +157,11 @@ export function Header() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-border" />
-            <DropdownMenuItem className="text-muted-foreground focus:bg-accent focus:text-foreground min-h-[44px]">
-              {t("header.profile")}
+            <DropdownMenuItem asChild className="text-muted-foreground focus:bg-accent focus:text-foreground min-h-[44px]">
+              <Link href="/profile">{t("header.profile")}</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-muted-foreground focus:bg-accent focus:text-foreground min-h-[44px]">
-              {t("header.settings")}
+            <DropdownMenuItem asChild className="text-muted-foreground focus:bg-accent focus:text-foreground min-h-[44px]">
+              <Link href="/settings">{t("header.settings")}</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator className="bg-border" />
             <DropdownMenuItem className="text-accent-danger focus:bg-destructive/10 focus:text-destructive min-h-[44px]">

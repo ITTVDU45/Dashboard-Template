@@ -883,6 +883,22 @@ export const userProfile: UserProfile = {
   timezone: "Europe/Berlin",
   language: "de",
   avatarUrl: null,
+  // Extended profile fields
+  firstName: "Max",
+  lastName: "Mustermann",
+  phone: "+49 170 1234567",
+  jobTitle: "Senior Developer",
+  department: "Engineering",
+  location: "Berlin, Deutschland",
+  bio: "Leidenschaftlicher Entwickler mit Fokus auf Cloud-Technologien und KI-Integration. Über 10 Jahre Erfahrung in der Softwareentwicklung.",
+  website: "https://maxmustermann.dev",
+  linkedIn: "max-mustermann",
+  twitter: "maxmustermann",
+  github: "maxmustermann",
+  twoFactorEnabled: true,
+  emailVerified: true,
+  createdAt: "2024-01-15T10:00:00Z",
+  lastLoginAt: "2025-01-22T14:30:00Z",
 };
 
 // ============ Feature Requests ============

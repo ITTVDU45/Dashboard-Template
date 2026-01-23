@@ -21,7 +21,8 @@
       "billing": "Billing",
       "support": "Support",
       "settings": "Einstellungen",
-      "wishlist": "Wunschliste"
+      "wishlist": "Wunschliste",
+      "assistantMode": "Assistant Mode"
     }
   },
   "offline": {
@@ -609,6 +610,58 @@
       "language": "Sprache",
       "timezone": "Zeitzone",
       "theme": "Design"
+    },
+    "legal": {
+      "title": "Legal Center",
+      "description": "Rechtliche Dokumente und Datenschutzinformationen",
+      "commercialTerms": "Geschäftsbedingungen",
+      "commercialTermsDesc": "Unsere allgemeinen Geschäftsbedingungen",
+      "usagePolicy": "Nutzungsrichtlinien",
+      "usagePolicyDesc": "Richtlinien zur Nutzung unserer Services",
+      "privacyPolicy": "Datenschutzerklärung",
+      "privacyPolicyDesc": "Wie wir Ihre Daten schützen",
+      "dataRetention": "Datenaufbewahrung",
+      "dataRetentionDesc": "Informationen zur Speicherdauer Ihrer Daten",
+      "privacyChoices": "Ihre Datenschutzoptionen",
+      "privacyChoicesDesc": "Verwalten Sie Ihre Datenschutzeinstellungen",
+      "dataManagement": "Datenverwaltung",
+      "dataManagementDesc": "Verwalten Sie Ihre persönlichen Daten",
+      "downloadData": "Daten herunterladen",
+      "downloadDataDesc": "Laden Sie eine Kopie aller Ihrer Daten herunter",
+      "download": "Herunterladen",
+      "downloadStarted": "Download wird vorbereitet...",
+      "requestDeletion": "Datenlöschung anfordern",
+      "requestDeletionDesc": "Fordern Sie die Löschung Ihrer Daten an",
+      "requestButton": "Anfrage stellen",
+      "deletionRequested": "Löschungsanfrage wird bearbeitet...",
+      "contact": "Rechtlicher Kontakt",
+      "contactDesc": "Bei rechtlichen Fragen kontaktieren Sie uns unter:",
+      "address": "Adresse"
+    },
+    "limits": {
+      "title": "Limits",
+      "freeTier": "Free Tier",
+      "description": "Limits helfen uns, Missbrauch zu verhindern und die API-Kapazität zu verwalten. Rate Limits beschränken die API-Nutzungshäufigkeit über einen bestimmten Zeitraum.",
+      "monitor": "Nutzung überwachen",
+      "monitorInfo": "Die Nutzungsüberwachung wird in Kürze verfügbar sein.",
+      "modelLimits": "Modell-Limits",
+      "model": "Modell",
+      "requestsPerMinute": "Requests pro Minute",
+      "inputTokensPerMinute": "Input-Token pro Minute",
+      "outputTokensPerMinute": "Output-Token pro Minute",
+      "additionalLimits": "Weitere Limits",
+      "batchRequests": "Batch-Anfragen",
+      "batchRequestsDesc": "Limit pro Minute für alle Modelle",
+      "webSearch": "Web-Suche",
+      "webSearchDesc": "Limit pro Sekunde für alle Modelle",
+      "fileUploads": "Datei-Uploads",
+      "fileUploadsDesc": "Maximale Dateigröße pro Upload",
+      "concurrentRequests": "Parallele Anfragen",
+      "concurrentRequestsDesc": "Maximale gleichzeitige Anfragen",
+      "upgradeTitle": "Benötigen Sie höhere Limits?",
+      "upgradeDesc": "Upgraden Sie auf einen kostenpflichtigen Plan für höhere Rate Limits und mehr Funktionen.",
+      "upgradeCta": "Plan upgraden",
+      "upgradeInfo": "Plan-Upgrade wird in Kürze verfügbar sein."
     }
   },
   "wishlist": {
@@ -729,6 +782,8 @@
     "notifications": "Benachrichtigungen",
     "showAll": "Alle anzeigen",
     "aiReady": "AI Ready",
+    "docs": "Docs",
+    "apiReference": "API Reference",
     "profile": "Profil",
     "settings": "Einstellungen",
     "logout": "Abmelden"
@@ -743,5 +798,134 @@
     "light": "Hell",
     "dark": "Dunkel",
     "system": "System"
+  },
+  "assistantMode": {
+    "title": "Assistant Mode",
+    "description": "Ihr intelligenter KI-Assistent für automatisierte Aufgaben und Konversationen.",
+    "comingSoon": {
+      "title": "Bald verfügbar",
+      "description": "Wir arbeiten an einem leistungsstarken KI-Assistenten, der Ihre Arbeitsabläufe revolutionieren wird. Bleiben Sie dran!"
+    },
+    "features": {
+      "chat": {
+        "title": "Intelligente Konversation",
+        "description": "Natürliche Gespräche mit kontextuellem Verständnis und präzisen Antworten."
+      },
+      "automation": {
+        "title": "Workflow-Automatisierung",
+        "description": "Automatisieren Sie wiederkehrende Aufgaben und steigern Sie Ihre Produktivität."
+      },
+      "ai": {
+        "title": "KI-gestützte Analyse",
+        "description": "Erhalten Sie datengestützte Einblicke und Empfehlungen in Echtzeit."
+      }
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "description": "Verwalten Sie Ihre persönlichen Daten und Kontoeinstellungen.",
+    "verified": "Verifiziert",
+    "unverified": "Nicht verifiziert",
+    "quickInfo": "Kurzinfo",
+    "accountInfo": "Kontoinformationen",
+    "memberSince": "Mitglied seit",
+    "lastLogin": "Letzte Anmeldung",
+    "messages": {
+      "saved": "Profil erfolgreich gespeichert",
+      "error": "Fehler beim Speichern"
+    },
+    "avatar": {
+      "uploadInfo": "Klicken Sie, um ein neues Profilbild hochzuladen"
+    },
+    "tabs": {
+      "general": "Allgemein",
+      "contact": "Kontakt",
+      "social": "Social",
+      "security": "Sicherheit"
+    },
+    "general": {
+      "personalInfo": "Persönliche Informationen",
+      "personalInfoDesc": "Aktualisieren Sie Ihre persönlichen Daten.",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "bio": "Bio",
+      "bioPlaceholder": "Erzählen Sie etwas über sich...",
+      "workInfo": "Berufliche Informationen",
+      "workInfoDesc": "Informationen zu Ihrer beruflichen Tätigkeit.",
+      "jobTitle": "Position",
+      "department": "Abteilung",
+      "company": "Unternehmen",
+      "location": "Standort"
+    },
+    "contact": {
+      "title": "Kontaktdaten",
+      "description": "Aktualisieren Sie Ihre Kontaktinformationen.",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "verify": "Verifizieren",
+      "preferences": "Präferenzen",
+      "preferencesDesc": "Spracheinstellungen und Zeitzone.",
+      "language": "Sprache",
+      "timezone": "Zeitzone"
+    },
+    "social": {
+      "title": "Social Media",
+      "description": "Verknüpfen Sie Ihre Social-Media-Profile.",
+      "website": "Website"
+    },
+    "security": {
+      "twoFactor": "Zwei-Faktor-Authentifizierung",
+      "twoFactorDesc": "Erhöhen Sie die Sicherheit Ihres Kontos mit 2FA.",
+      "twoFactorEnabled": "2FA aktiviert",
+      "twoFactorDisabled": "2FA deaktiviert",
+      "twoFactorEnabledDesc": "Ihr Konto ist durch 2FA geschützt.",
+      "twoFactorDisabledDesc": "Aktivieren Sie 2FA für zusätzliche Sicherheit.",
+      "twoFactorActivated": "Zwei-Faktor-Authentifizierung aktiviert",
+      "twoFactorDeactivated": "Zwei-Faktor-Authentifizierung deaktiviert",
+      "changePassword": "Passwort ändern",
+      "changePasswordDesc": "Aktualisieren Sie Ihr Kontopasswort.",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "updatePassword": "Passwort aktualisieren",
+      "passwordMismatch": "Passwörter stimmen nicht überein",
+      "passwordTooShort": "Passwort muss mindestens 8 Zeichen lang sein",
+      "passwordChanged": "Passwort erfolgreich geändert",
+      "dangerZone": "Gefahrenzone",
+      "dangerZoneDesc": "Irreversible Aktionen für Ihr Konto.",
+      "exportData": "Daten exportieren",
+      "exportDataDesc": "Laden Sie alle Ihre Kontodaten herunter.",
+      "export": "Exportieren",
+      "exportStarted": "Export wird vorbereitet...",
+      "deleteAccount": "Konto löschen",
+      "deleteAccountDesc": "Diese Aktion kann nicht rückgängig gemacht werden.",
+      "delete": "Konto löschen",
+      "deleteConfirmTitle": "Sind Sie sicher?",
+      "deleteConfirmDesc": "Diese Aktion ist unwiderruflich. Alle Ihre Daten, API-Keys und Integrationen werden dauerhaft gelöscht.",
+      "deleteConfirm": "Ja, Konto löschen",
+      "deleteBlocked": "Kontolöschung in der Demo deaktiviert"
+    }
+  },
+  "chat": {
+    "title": "Curser AI",
+    "subtitle": "Immer für Sie da",
+    "placeholder": "Nachricht eingeben...",
+    "disclaimer": "KI kann Fehler machen. Überprüfen Sie wichtige Informationen.",
+    "welcome": {
+      "title": "Wie kann ich helfen?",
+      "description": "Fragen Sie mich zu APIs, Integrationen oder Support-Themen."
+    },
+    "prompts": {
+      "apiHelp": "Wie erstelle ich einen API-Key?",
+      "pricing": "Was kostet der Pro-Plan?",
+      "integration": "Wie integriere ich die API?"
+    },
+    "responses": {
+      "greeting": "Hallo! Ich bin Curser AI, Ihr persönlicher Assistent. Ich helfe Ihnen gerne bei Fragen zu unserer Plattform, API-Integration oder technischen Themen. Was möchten Sie wissen?",
+      "help": "Ich kann Ihnen bei verschiedenen Themen helfen: API-Key-Verwaltung, Nutzungsstatistiken, Abrechnung, Integrationen und mehr. Beschreiben Sie einfach Ihr Anliegen!",
+      "apiInfo": "Um einen API-Key zu erstellen, gehen Sie zu 'API-Keys' in der Seitenleiste und klicken Sie auf 'Neuer API-Key'. Vergeben Sie einen Namen und wählen Sie die gewünschten Berechtigungen.",
+      "support": "Bei komplexeren Anliegen können Sie ein Support-Ticket erstellen unter 'Support' in der Seitenleiste. Unser Team antwortet in der Regel innerhalb von 24 Stunden.",
+      "features": "Unsere Plattform bietet zahlreiche Features: API-Management, Nutzungsanalysen, Workflow-Automatisierung, Marketplace für Erweiterungen und vieles mehr. Worüber möchten Sie mehr erfahren?"
+    }
   }
 }

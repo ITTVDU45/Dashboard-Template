@@ -4,14 +4,12 @@ import {
   BarChart3,
   FileText,
   HardDrive,
-  BookOpen,
-  CreditCard,
   Store,
+  Bot,
   Puzzle,
   Workflow,
   HeadphonesIcon,
   Settings,
-  Lightbulb,
   type LucideIcon,
 } from "lucide-react";
 
@@ -35,6 +33,16 @@ export const navConfig: NavSection[] = [
         titleKey: "nav.items.dashboard",
         href: "/dashboard",
         icon: LayoutDashboard,
+      },
+      {
+        titleKey: "nav.items.marketplace",
+        href: "/marketplace",
+        icon: Store,
+      },
+      {
+        titleKey: "nav.items.assistantMode",
+        href: "/assistant-mode",
+        icon: Bot,
       },
     ],
   },
@@ -64,28 +72,8 @@ export const navConfig: NavSection[] = [
     ],
   },
   {
-    titleKey: "nav.sections.resources",
-    items: [
-      {
-        titleKey: "nav.items.docs",
-        href: "/docs",
-        icon: BookOpen,
-      },
-      {
-        titleKey: "nav.items.billing",
-        href: "/billing",
-        icon: CreditCard,
-      },
-    ],
-  },
-  {
     titleKey: "nav.sections.account",
     items: [
-      {
-        titleKey: "nav.items.marketplace",
-        href: "/marketplace",
-        icon: Store,
-      },
       {
         titleKey: "nav.items.integrations",
         href: "/integrations",
@@ -105,12 +93,6 @@ export const navConfig: NavSection[] = [
         titleKey: "nav.items.settings",
         href: "/settings",
         icon: Settings,
-      },
-      {
-        titleKey: "nav.items.wishlist",
-        href: "/wishlist",
-        icon: Lightbulb,
-        badge: "Neu",
       },
     ],
   },

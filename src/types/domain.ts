@@ -213,6 +213,22 @@ export interface UserProfile {
   timezone: string;
   language: string;
   avatarUrl: string | null;
+  // Extended profile fields
+  firstName: string;
+  lastName: string;
+  phone: string;
+  jobTitle: string;
+  department: string;
+  location: string;
+  bio: string;
+  website: string;
+  linkedIn: string;
+  twitter: string;
+  github: string;
+  twoFactorEnabled: boolean;
+  emailVerified: boolean;
+  createdAt: string;
+  lastLoginAt: string;
 }
 
 // ============ Wishlist ============
