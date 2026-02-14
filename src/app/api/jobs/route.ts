@@ -36,6 +36,13 @@ export async function POST(request: Request) {
     }
   })
 
-  await createAuditLog({ entityType: "Job", entityId: job.id, action: "create", payload: body })
+  await createAuditLog({
+    entityType: "Job",
+    entityId: job.id,
+    action: "create",
+    payload: body,
+    projectId: job.projectId,
+    summary: `Job gestartet: ${job.id}`,
+  })
   return ok(job, { status: 201 })
 }

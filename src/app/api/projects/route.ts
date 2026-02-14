@@ -16,12 +16,25 @@ export async function POST(request: Request) {
   const parsed = projectSchema.safeParse(body)
   if (!parsed.success) return fail("Invalid project payload", 400, parsed.error.flatten())
 
-  const project = await prisma.project.create({ data: parsed.data })
+  const data = {
+    ...parsed.data,
+    technologies: Array.isArray(parsed.data.technologies)
+      ? JSON.stringify(parsed.data.technologies)
+      : (parsed.data.technologies ?? null),
+    preferredTemplateCategories: Array.isArray(parsed.data.preferredTemplateCategories)
+      ? JSON.stringify(parsed.data.preferredTemplateCategories)
+      : (parsed.data.preferredTemplateCategories ?? null),
+    startDate: parsed.data.startDate ? new Date(parsed.data.startDate) : null,
+    endDate: parsed.data.endDate ? new Date(parsed.data.endDate) : null,
+  }
+  const project = await prisma.project.create({ data })
   await createAuditLog({
     entityType: "Project",
     entityId: project.id,
     action: "create",
-    payload: parsed.data
+    payload: parsed.data,
+    projectId: project.id,
+    summary: `Projekt erstellt: ${project.name}`,
   })
   return ok(project, { status: 201 })
 }

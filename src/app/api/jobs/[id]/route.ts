@@ -15,6 +15,8 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
+  const existing = await prisma.job.findUnique({ where: { id }, select: { projectId: true } })
+  if (!existing) return fail("Job not found", 404)
   const body = await parseBody<{
     status?: string
     logs?: string
@@ -42,13 +44,28 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     }
   })
 
-  await createAuditLog({ entityType: "Job", entityId: id, action: "update", payload: body })
+  await createAuditLog({
+    entityType: "Job",
+    entityId: id,
+    action: "update",
+    payload: body,
+    projectId: existing.projectId,
+    summary: `Job aktualisiert: ${job.status}`,
+  })
   return ok(job)
 }
 
 export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
+  const existing = await prisma.job.findUnique({ where: { id }, select: { projectId: true } })
+  if (!existing) return fail("Job not found", 404)
   await prisma.job.delete({ where: { id } })
-  await createAuditLog({ entityType: "Job", entityId: id, action: "delete" })
+  await createAuditLog({
+    entityType: "Job",
+    entityId: id,
+    action: "delete",
+    projectId: existing.projectId,
+    summary: "Job gelöscht",
+  })
   return ok({ deleted: true })
 }

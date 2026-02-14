@@ -6,6 +6,8 @@ interface CreateAuditLogInput {
   entityId: string
   action: "create" | "update" | "delete" | "sync"
   payload?: unknown
+  projectId?: string | null
+  summary?: string | null
 }
 
 export async function createAuditLog({
@@ -13,7 +15,9 @@ export async function createAuditLog({
   entityType,
   entityId,
   action,
-  payload
+  payload,
+  projectId,
+  summary,
 }: CreateAuditLogInput) {
   return prisma.auditLog.create({
     data: {
@@ -21,7 +25,9 @@ export async function createAuditLog({
       entityType,
       entityId,
       action,
-      payload: payload ? JSON.stringify(payload) : null
-    }
+      payload: payload ? JSON.stringify(payload) : null,
+      projectId: projectId ?? null,
+      summary: summary ?? null,
+    },
   })
 }

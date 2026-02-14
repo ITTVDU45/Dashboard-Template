@@ -33,6 +33,13 @@ export async function POST(request: Request) {
     }
   })
 
-  await createAuditLog({ entityType: "Asset", entityId: asset.id, action: "create", payload: parsed.data })
+  await createAuditLog({
+    entityType: "Asset",
+    entityId: asset.id,
+    action: "create",
+    payload: parsed.data,
+    projectId: asset.projectId ?? undefined,
+    summary: `Asset erstellt: ${asset.type}`,
+  })
   return ok(asset, { status: 201 })
 }

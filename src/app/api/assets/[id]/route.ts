@@ -12,6 +12,8 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
+  const existing = await prisma.asset.findUnique({ where: { id }, select: { projectId: true } })
+  if (!existing) return fail("Asset not found", 404)
   const body = await parseBody<unknown>(request).catch(() => null)
   const parsed = assetSchema.safeParse(body)
   if (!parsed.success) return fail("Invalid asset payload", 400, parsed.error.flatten())
@@ -26,13 +28,28 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
       meta: parsed.data.meta ? JSON.stringify(parsed.data.meta) : null
     }
   })
-  await createAuditLog({ entityType: "Asset", entityId: id, action: "update", payload: parsed.data })
+  await createAuditLog({
+    entityType: "Asset",
+    entityId: id,
+    action: "update",
+    payload: parsed.data,
+    projectId: existing.projectId ?? undefined,
+    summary: `Asset aktualisiert: ${asset.type}`,
+  })
   return ok(asset)
 }
 
 export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
+  const existing = await prisma.asset.findUnique({ where: { id }, select: { projectId: true } })
+  if (!existing) return fail("Asset not found", 404)
   await prisma.asset.delete({ where: { id } })
-  await createAuditLog({ entityType: "Asset", entityId: id, action: "delete" })
+  await createAuditLog({
+    entityType: "Asset",
+    entityId: id,
+    action: "delete",
+    projectId: existing.projectId ?? undefined,
+    summary: "Asset gelöscht",
+  })
   return ok({ deleted: true })
 }

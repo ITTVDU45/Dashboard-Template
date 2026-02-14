@@ -9,7 +9,71 @@ export const companySchema = z.object({
   brandTone: z.string().optional(),
   colors: z.array(z.string()).default([]),
   logoUrl: optionalUrl,
-  notes: z.string().optional()
+  notes: z.string().optional(),
+  employeeCount: z.number().int().positive().optional(),
+  foundingYear: z.number().int().min(1700).max(2100).optional(),
+  websiteSystem: z.string().optional(),
+  googleRating: z.number().min(1).max(5).optional(),
+  googleReviewCount: z.number().int().min(0).optional(),
+  location: z.string().optional(),
+  description: z.string().optional(),
+  shortPitch: z.string().optional(),
+  usp: z.array(z.string()).optional().or(z.string().optional()),
+  positioning: z.string().optional(),
+  businessModel: z.string().optional(),
+  targetMarket: z.string().optional(),
+  priceLevel: z.enum(["low", "medium", "high", "premium"]).optional().or(z.string().optional()),
+  marketPosition: z.enum(["lokal", "national", "global"]).optional().or(z.string().optional()),
+  googleAddress: z.string().optional(),
+  googleMapsLink: optionalUrl,
+  googleOpeningHours: z.string().optional(),
+  sslEnabled: z.boolean().optional(),
+  websiteReachable: z.boolean().optional(),
+  avgLoadTime: z.number().int().min(0).optional(),
+  socialMedia: z
+    .array(
+      z.object({
+        platform: z.string().min(1),
+        url: optionalUrl,
+        status: z.enum(["active", "inactive"]).default("active"),
+        followers: z.number().int().min(0).optional(),
+      })
+    )
+    .optional()
+    .or(z.string().optional()),
+  techStack: z
+    .object({
+      cms: z.string().optional(),
+      hosting: z.string().optional(),
+      cdn: z.string().optional(),
+      tracking: z.array(z.string()).optional(),
+      seoBasics: z.string().optional(),
+    })
+    .optional()
+    .or(z.string().optional()),
+  generalEmail: z.string().email().optional().or(z.literal("")),
+  generalPhone: z.string().optional(),
+  supportEmail: z.string().email().optional().or(z.literal("")),
+  salesEmail: z.string().email().optional().or(z.literal("")),
+})
+
+export const companyServiceSchema = z.object({
+  category: z.string().min(1),
+  title: z.string().min(2),
+  description: z.string().optional(),
+  keywords: z.array(z.string()).optional().or(z.string().optional()),
+  relevanceScore: z.number().min(0).max(1).optional(),
+})
+
+export const companyContactSchema = z.object({
+  name: z.string().min(2),
+  role: z.string().optional(),
+  email: z.string().email().optional().or(z.literal("")),
+  phone: z.string().optional(),
+  linkedIn: optionalUrl,
+  responsibilities: z.string().optional(),
+  isDecisionMaker: z.boolean().optional(),
+  notes: z.string().optional(),
 })
 
 export const projectSchema = z.object({
@@ -19,7 +83,51 @@ export const projectSchema = z.object({
   objective: z.string().optional(),
   targetAudience: z.string().optional(),
   primaryCTA: z.string().optional(),
-  status: z.string().default("active")
+  status: z.string().default("active"),
+  description: z.string().optional(),
+  owner: z.string().optional(),
+  startDate: z.string().datetime().optional(),
+  endDate: z.string().datetime().optional(),
+  technologies: z.array(z.string()).optional().or(z.string().optional()),
+  previewUrl: optionalUrl,
+  contactPerson: z.string().optional(),
+  workflowAssignmentEnabled: z.boolean().optional(),
+  preferredTemplateCategories: z.array(z.string()).optional().or(z.string().optional()),
+})
+
+export const todoSchema = z.object({
+  title: z.string().min(1),
+  description: z.string().optional(),
+  status: z.enum(["open", "in_progress", "done", "cancelled"]).default("open"),
+  priority: z.enum(["low", "medium", "high"]).default("medium"),
+  dueAt: z.string().datetime().optional(),
+  assignedTo: z.string().optional(),
+  milestoneId: z.string().optional(),
+})
+
+export const milestoneSchema = z.object({
+  title: z.string().min(1),
+  description: z.string().optional(),
+  status: z.enum(["planned", "in_progress", "done"]).default("planned"),
+  dueAt: z.string().datetime().optional(),
+  sortOrder: z.number().int().optional(),
+})
+
+export const offerSchema = z.object({
+  number: z.string().min(1),
+  status: z.enum(["draft", "sent", "accepted", "declined"]).default("draft"),
+  amount: z.number().optional(),
+  pdfUrl: optionalUrl,
+  milestoneId: z.string().optional(),
+})
+
+export const invoiceSchema = z.object({
+  number: z.string().min(1),
+  status: z.enum(["draft", "sent", "paid"]).default("draft"),
+  amount: z.number().optional(),
+  dueAt: z.string().datetime().optional(),
+  paidAt: z.string().datetime().optional(),
+  offerId: z.string().optional(),
 })
 
 export const designSchema = z.object({
