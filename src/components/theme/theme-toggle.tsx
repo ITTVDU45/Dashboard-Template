@@ -14,11 +14,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useTranslations } from "next-intl";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const t = useTranslations("theme");
 
   return (
     <DropdownMenu>
@@ -35,12 +33,12 @@ export function ThemeToggle() {
               ) : (
                 <Sun className="h-5 w-5 text-muted-foreground" />
               )}
-              <span className="sr-only">{t("toggle")}</span>
+              <span className="sr-only">Theme wechseln</span>
             </Button>
           </DropdownMenuTrigger>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{t("toggle")}</p>
+          <p>Theme wechseln</p>
         </TooltipContent>
       </Tooltip>
       <DropdownMenuContent align="end" className="bg-popover/95 backdrop-blur-xl border-border">
@@ -49,21 +47,21 @@ export function ThemeToggle() {
           className={`focus:bg-accent ${theme === "light" ? "text-primary" : "text-muted-foreground"}`}
         >
           <Sun className="mr-2 h-4 w-4" />
-          {t("light")}
+          Hell
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("dark")}
           className={`focus:bg-accent ${theme === "dark" ? "text-primary" : "text-muted-foreground"}`}
         >
           <Moon className="mr-2 h-4 w-4" />
-          {t("dark")}
+          Dunkel
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("system")}
           className={`focus:bg-accent ${theme === "system" ? "text-primary" : "text-muted-foreground"}`}
         >
           <Monitor className="mr-2 h-4 w-4" />
-          {t("system")}
+          System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

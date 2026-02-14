@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import {
   Table,
   TableBody,
@@ -12,12 +13,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { Input } from "@/components/ui/input";
 
 export interface Column<T> {
   key: string;
   header: string;
   cell: (row: T) => React.ReactNode;
+  sortValue?: (row: T) => string | number;
   className?: string;
   mobileHidden?: boolean; // Hide this column on mobile card view
   mobileLabel?: string; // Custom label for mobile card view
@@ -26,30 +28,76 @@ export interface Column<T> {
 interface DataTableProps<T> {
   columns: Column<T>[];
   data: T[];
+  searchBy?: (row: T) => string;
   onRowClick?: (row: T) => void;
-  page?: number;
   pageSize?: number;
-  total?: number;
-  onPageChange?: (page: number) => void;
   className?: string;
 }
 
 export function DataTable<T extends { id: string }>({
   columns,
   data,
+  searchBy,
   onRowClick,
-  page = 1,
   pageSize = 10,
-  total,
-  onPageChange,
   className,
 }: DataTableProps<T>) {
-  const t = useTranslations("common");
-  const totalPages = total ? Math.ceil(total / pageSize) : 1;
-  const showPagination = total && total > pageSize;
+  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState("");
+  const [sortKey, setSortKey] = useState<string | null>(null);
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+
+  const filtered = useMemo(() => {
+    if (!query.trim() || !searchBy) return data;
+    return data.filter((row) =>
+      searchBy(row).toLowerCase().includes(query.trim().toLowerCase())
+    );
+  }, [data, query, searchBy]);
+
+  const sorted = useMemo(() => {
+    if (!sortKey) return filtered;
+    const column = columns.find((entry) => entry.key === sortKey);
+    if (!column?.sortValue) return filtered;
+
+    return [...filtered].sort((a, b) => {
+      const valueA = column.sortValue?.(a);
+      const valueB = column.sortValue?.(b);
+      if (valueA === valueB) return 0;
+      if (valueA === undefined || valueA === null) return sortDirection === "asc" ? -1 : 1;
+      if (valueB === undefined || valueB === null) return sortDirection === "asc" ? 1 : -1;
+      if (sortDirection === "asc") return valueA > valueB ? 1 : -1;
+      return valueA < valueB ? 1 : -1;
+    });
+  }, [columns, filtered, sortDirection, sortKey]);
+
+  const total = sorted.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const paginated = sorted.slice((page - 1) * pageSize, page * pageSize);
+  const showPagination = total > pageSize;
+
+  function handleSort(nextSortKey: string) {
+    if (sortKey !== nextSortKey) {
+      setSortKey(nextSortKey);
+      setSortDirection("asc");
+      return;
+    }
+    setSortDirection((value) => (value === "asc" ? "desc" : "asc"));
+  }
 
   return (
     <div className={cn("space-y-4", className)}>
+      {searchBy ? (
+        <Input
+          value={query}
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setPage(1);
+          }}
+          placeholder="Suche..."
+          className="max-w-sm"
+        />
+      ) : null}
+
       {/* Desktop Table View */}
       <div className="hidden md:block rounded-xl border border-border bg-card overflow-hidden">
         <Table>
@@ -57,13 +105,22 @@ export function DataTable<T extends { id: string }>({
             <TableRow className="hover:bg-transparent border-border">
               {columns.map((column) => (
                 <TableHead key={column.key} className={column.className}>
-                  {column.header}
+                  <button
+                    type="button"
+                    className="focus-ring flex items-center gap-2 rounded-sm font-medium"
+                    onClick={() => column.sortValue && handleSort(column.key)}
+                    disabled={!column.sortValue}
+                    aria-label={column.sortValue ? `${column.header} sortieren` : `${column.header} nicht sortierbar`}
+                  >
+                    {column.header}
+                    {sortKey === column.key ? (sortDirection === "asc" ? "↑" : "↓") : null}
+                  </button>
                 </TableHead>
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.length === 0 ? (
+            {paginated.length === 0 ? (
               <TableRow className="hover:bg-transparent">
                 <TableCell
                   colSpan={columns.length}
@@ -71,18 +128,26 @@ export function DataTable<T extends { id: string }>({
                 >
                   <div className="flex flex-col items-center gap-2">
                     <div className="text-4xl opacity-30">📭</div>
-                    <span>{t("states.empty")}</span>
+                    <span>Keine Daten gefunden.</span>
                   </div>
                 </TableCell>
               </TableRow>
             ) : (
-              data.map((row, index) => (
+              paginated.map((row, index) => (
                 <TableRow
                   key={row.id}
                   onClick={() => onRowClick?.(row)}
+                  onKeyDown={(event) => {
+                    if (!onRowClick) return
+                    if (event.key !== "Enter" && event.key !== " ") return
+                    event.preventDefault()
+                    onRowClick(row)
+                  }}
+                  role={onRowClick ? "button" : undefined}
+                  tabIndex={onRowClick ? 0 : undefined}
                   className={cn(
-                    onRowClick && "cursor-pointer",
-                    "animate-fade-in"
+                    onRowClick && "focus-ring interactive-lift cursor-pointer hover:bg-muted/40",
+                    "animate-fade-in motion-reduce:animate-none"
                   )}
                   style={{ animationDelay: `${index * 30}ms` }}
                 >
@@ -100,23 +165,31 @@ export function DataTable<T extends { id: string }>({
 
       {/* Mobile Card View */}
       <div className="md:hidden space-y-3">
-        {data.length === 0 ? (
+        {paginated.length === 0 ? (
           <Card>
             <CardContent className="py-8 text-center text-muted-foreground">
               <div className="flex flex-col items-center gap-2">
                 <div className="text-4xl opacity-30">📭</div>
-                <span>{t("states.empty")}</span>
+                <span>Keine Daten gefunden.</span>
               </div>
             </CardContent>
           </Card>
         ) : (
-          data.map((row, index) => (
+          paginated.map((row, index) => (
             <Card 
               key={row.id}
               onClick={() => onRowClick?.(row)}
+              onKeyDown={(event) => {
+                if (!onRowClick) return
+                if (event.key !== "Enter" && event.key !== " ") return
+                event.preventDefault()
+                onRowClick(row)
+              }}
+              role={onRowClick ? "button" : undefined}
+              tabIndex={onRowClick ? 0 : undefined}
               className={cn(
-                "animate-fade-in transition-all active:scale-[0.99]",
-                onRowClick && "cursor-pointer active:bg-muted/50"
+                "animate-fade-in motion-reduce:animate-none transition-all motion-reduce:transition-none motion-safe:active:scale-[0.99]",
+                onRowClick && "focus-ring interactive-lift cursor-pointer active:bg-muted/50"
               )}
               style={{ animationDelay: `${index * 50}ms` }}
             >
@@ -153,29 +226,29 @@ export function DataTable<T extends { id: string }>({
       {showPagination && (
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground text-center sm:text-left">
-            {t("pagination.page")} <span className="font-medium text-foreground">{page}</span> {t("pagination.of")}{" "}
+            Seite <span className="font-medium text-foreground">{page}</span> von{" "}
             <span className="font-medium text-foreground">{totalPages}</span>
-            {" "}({total} {t("pagination.entries")})
+            {" "}({total} Eintraege)
           </div>
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
               size="sm"
-              onClick={() => onPageChange?.(page - 1)}
+              onClick={() => setPage((value) => Math.max(1, value - 1))}
               disabled={page <= 1}
               className="h-10 min-w-[80px]"
             >
               <ChevronLeft className="h-4 w-4 mr-1" />
-              {t("pagination.previous")}
+              Zurueck
             </Button>
             <Button
               variant="outline"
               size="sm"
-              onClick={() => onPageChange?.(page + 1)}
+              onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
               disabled={page >= totalPages}
               className="h-10 min-w-[80px]"
             >
-              {t("pagination.next")}
+              Weiter
               <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
           </div>

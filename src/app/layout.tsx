@@ -1,15 +1,32 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import Link from "next/link"
+import "@/styles/globals.css"
+import { ThemeProvider } from "@/components/theme/theme-provider"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "C - KI-Services Dashboard",
-  description: "Verwalten Sie Ihre KI-Services, API-Keys und Integrationen",
-};
+  title: "Landingpage Pipeline Admin",
+  description: "Admin Dashboard fuer Companies, Projects, Templates und Workflows",
+  metadataBase: new URL("http://localhost:3000")
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  return children;
+  return (
+    <html lang="de" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider defaultTheme="dark" storageKey="dashboard-theme">
+          <Link href="#main-content" className="skip-link">
+            Zum Inhalt springen
+          </Link>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  )
 }

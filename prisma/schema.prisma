@@ -1,0 +1,193 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        String    @id @default(cuid())
+  name      String
+  website   String?
+  industry  String?
+  brandTone String?
+  colors    String?
+  logoUrl   String?
+  notes     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  projects  Project[]
+}
+
+model Project {
+  id             String   @id @default(cuid())
+  companyId      String
+  company        Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name           String
+  slug           String   @unique
+  objective      String?
+  targetAudience String?
+  primaryCTA     String?
+  status         String   @default("active")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  jobs           Job[]
+  assets         Asset[]
+}
+
+model Design {
+  id            String    @id @default(cuid())
+  name          String
+  description   String?
+  // Source
+  sourceType    String    @default("web")
+  sourceUrl     String?
+  dribbbleId    String?   @unique
+  dribbbleUser  String?
+  // Kategorisierung
+  category      String?
+  industry      String?
+  // Images (JSON array)
+  images        String?
+  coverImageUrl String?
+  screenshotUrl String?
+  // Status & Dedupe
+  status        String    @default("saved")
+  dedupeKey     String?   @unique
+  // Bestehend
+  tags          String?
+  notes         String?
+  blueprint     String?
+  // Stats
+  usesCount     Int       @default(0)
+  lastUsedAt    DateTime?
+  // Collections (JSON array for MVP)
+  collectionIds String?
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Collection {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  designIds   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ImportJob {
+  id              String    @id @default(cuid())
+  type            String
+  inputData       String?
+  status          String    @default("queued")
+  resultDesignId  String?
+  errorMessage    String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  completedAt     DateTime?
+}
+
+model Template {
+  id                 String    @id @default(cuid())
+  name               String
+  slug               String    @unique
+  description        String?
+  // Typ + Kategorie
+  type               String    @default("section")
+  category           String?
+  // Tech-Stack
+  framework          String    @default("nextjs")
+  uiStack            String?
+  // Bestehend (backward-compat fuer Local Templates)
+  tags               String?
+  layoutCode         String?
+  placeholdersSchema String?
+  previewImageUrl    String?
+  // Source
+  sourceMode         String    @default("local")
+  repoFullName       String?
+  defaultBranch      String?
+  templateRootPath   String?
+  pinnedPaths        String?
+  // Preview
+  readmePath         String?   @default("README.md")
+  entryFile          String?
+  // Sync
+  syncStatus         String    @default("none")
+  lastSyncAt         DateTime?
+  lastCommitSha      String?
+  syncErrorMessage   String?
+  fileTreeSnapshot   String?
+  // Stats
+  usesCount          Int       @default(0)
+  lastUsedAt         DateTime?
+  // Timestamps
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model Job {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  templateId  String?
+  designId    String?
+  status      String   @default("queued")
+  steps       String?
+  logs        String?
+  inputJson   String?
+  outputJson  String?
+  previewUrl  String?
+  scheduledAt DateTime?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  assets      Asset[]
+}
+
+model Asset {
+  id         String   @id @default(cuid())
+  projectId  String?
+  project    Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  jobId      String?
+  job        Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  type       String
+  storageKey String
+  publicUrl  String?
+  meta       String?
+  createdAt  DateTime @default(now())
+}
+
+model Agent {
+  id        String   @id @default(cuid())
+  name      String
+  type      String
+  modelHint String?
+  enabled   Boolean  @default(true)
+  config    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model IntegrationSetting {
+  id        String   @id @default(cuid())
+  provider  String   @unique
+  config    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actor      String   @default("admin")
+  entityType String
+  entityId   String
+  action     String
+  payload    String?
+  createdAt  DateTime @default(now())
+}

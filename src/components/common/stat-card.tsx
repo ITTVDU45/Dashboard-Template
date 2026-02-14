@@ -42,7 +42,7 @@ export function StatCard({
   };
 
   return (
-    <Card variant={variant} className={cn("overflow-hidden", className)}>
+    <Card variant={variant} className={cn("overflow-hidden micro-enter", className)}>
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="space-y-1">
@@ -52,7 +52,7 @@ export function StatCard({
             </p>
           </div>
           {Icon && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            <div className="interactive-lift flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
               <Icon className="h-5 w-5 text-primary" />
             </div>
           )}
